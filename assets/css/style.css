@@ -10,3 +10,20 @@ background: linear-gradient(156deg, rgba(56,22,169,1) 0%, rgba(140,131,168,1) 69
     background-color: #004537;
     color: #149643;
 }
+#containerPlaylist{
+    border-top: 2px solid #4D4D4D;
+}
+#library{
+    width: 28px;
+    fill: #cacaca;
+}
+#library:hover{
+    fill: white;
+}
+a{
+    text-decoration: none;
+    color: #cacaca;
+}
+a:hover{
+    color: white;
+}
