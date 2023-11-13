@@ -1,0 +1,12 @@
+.icons{
+    padding: 5px 5px;
+}
+#heart{
+    background: rgb(56,22,169);
+background: linear-gradient(156deg, rgba(56,22,169,1) 0%, rgba(140,131,168,1) 69%, rgba(255,255,255,1) 100%);
+}
+
+#bookmark{
+    background-color: #004537;
+    color: #149643;
+}
