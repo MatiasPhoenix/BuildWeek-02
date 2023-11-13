@@ -1,8 +1,15 @@
 class AlbumCard {
   constructor(nome, imgUrl, year, artist) {
+    this.nome = nome; 
+    this.artist = artist; 
     this.divAlbums = document.getElementById("cont-album");
     this.card = this.createCard(nome, imgUrl, year, artist);
     this.divAlbums.appendChild(this.card);
+
+    // Aggiungi un listener di evento alla card stessa
+    this.card.addEventListener('click', () => {
+      this.handleCardClick();
+    });
   }
 
   createElement(tag, className, textContent) {
@@ -29,7 +36,6 @@ class AlbumCard {
     img.alt = `${nome} cover`;
     card.appendChild(img);
 
-
     const cardLinks = this.createElement('div', 'card-body', '');
     const link1 = this.createLink('a', 'card-link', '');
     const link2 = this.createLink('a', 'card-link', '');
@@ -42,10 +48,22 @@ class AlbumCard {
 
     return card;
   }
+
+  handleCardClick() {
+    console.log(this.artist);
+    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${this.artist}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // Esegui le operazioni desiderate con i dati ottenuti dalla chiamata API
+      })
+      .catch(error => console.error('Errore durante la richiesta API', error));
+  }
 }
 
 let divAlbums = document.getElementById("cont-album");
-let cardHTML = new AlbumCard("Fire", "assets/imgs/main/image-1.jpg", "2020", "Adele");
+let albumCard = new AlbumCard("Fire", "assets/imgs/main/image-1.jpg", "2020", "The beatles");
+let albumCard2 = new AlbumCard("Mario", "assets/imgs/main/image-2.jpg", "2020", "Adele");
 
 
 
