@@ -98,8 +98,31 @@
             
         <div id="" class="col-2">barra destra</div>
     </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form id="searchForm">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search for albums, artists, tracks" id="searchQuery">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="artistCheckbox">
+                            <label class="form-check-label" for="artistCheckbox">For Artist</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="albumCheckbox">
+                            <label class="form-check-label" for="albumCheckbox">For Album</label>
+                        </div>
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    </div>
+                </form>
+                <div id="results"></div>
+            </div>
+        </div>
+    </div>
+    
     <div id="footerSong"></div>
     
     <script src="assets/scripts/script.js"></script>
+    <script src="js/spotify.js"></script>
 </body>
 </html>

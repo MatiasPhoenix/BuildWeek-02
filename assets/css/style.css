@@ -37,9 +37,7 @@ h2 {
     border-radius: 20px 20px 20px 20px;
     padding: 10px 20px;
 }
-#saveSong {
-    /* margin-left: ; */
-}
+
 #songSection{
     background-color: var(--colorPlaySong) ;
     
@@ -70,4 +68,10 @@ h2 {
   .card-title{
       font-weight: 800;
       
+  }
+
+
+
+  .album-container{
+    color:black;
   }

@@ -1,8 +1,38 @@
-document.getElementById('searchForm').addEventListener('submit', function (event) {
+document.getElementById('searchForm').addEventListener('submit', async function (event) {
     event.preventDefault();
     const query = document.getElementById('searchQuery').value;
-    searchMusic(query);
+    const isArtistSearch = document.getElementById('artistCheckbox').checked;
+    const isAlbumSearch = document.getElementById('albumCheckbox').checked;
+
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = ''; // Svuota i risultati precedenti
+
+    if (!isArtistSearch && !isAlbumSearch) {
+        searchTracks(query);
+
+    } else {
+        if (isArtistSearch) {
+            const artistData = await searchArtistId(query);
+            if (artistData) {
+                // Esegui operazioni specifiche per l'artista
+                // Mostra i dettagli dell'artista
+                console.log('Dettagli artista:', artistData);
+            }
+        }
+        if (isAlbumSearch) {
+            searchMusic(query);
+        }
+    }
 });
+
+// Verifica iniziale per assicurarci che almeno un checkbox sia selezionato all'avvio
+const initialArtistSearch = document.getElementById('artistCheckbox').checked;
+const initialAlbumSearch = document.getElementById('albumCheckbox').checked;
+
+if (!initialArtistSearch && !initialAlbumSearch) {
+    // Nessun checkbox selezionato all'avvio, esegui la ricerca delle tracce
+    searchTracks(document.getElementById('searchQuery').value);
+}
 
 function searchMusic(query) {
     const url = new URL('https://striveschool-api.herokuapp.com/api/deezer/search');
@@ -12,10 +42,109 @@ function searchMusic(query) {
         .then(response => response.json())
         .then(data => {
             const albumIds = data.data.map(track => track.album.id);
-            displayResults(data.data, albumIds);
+            displayResults(data.data, albumIds, query);
         })
         .catch(error => console.error('Error:', error));
 }
+
+async function searchArtistId(artistName) {
+    try {
+        const url = new URL('https://striveschool-api.herokuapp.com/api/deezer/search');
+        url.search = new URLSearchParams({ q: artistName });
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data && data.data && data.data.length > 0) {
+            const displayedArtists = new Set(); // Insieme per tenere traccia degli artisti visualizzati
+
+            data.data.forEach(track => {
+                const artistId = track.artist.id;
+                const artistImage = track.artist.picture_medium;
+                const artistName = track.artist.name;
+
+                if (!displayedArtists.has(`${artistId}_${artistName}`)) { // Controlla se l'artista è già stato visualizzato
+                    console.log('ID dell\'artista:', artistId);
+                    console.log('Nome dell\'artista:', artistName);
+                    console.log('URL immagine dell\'artista:', artistImage);
+
+                    // Mostra dettagli artista
+                    displayArtistDetails(artistName, artistImage);
+
+                    // Aggiungi evento clic per aprire la tracklist
+                    const artistElement = document.createElement("div");
+                    artistElement.textContent = `Artist: ${artistName}`;
+                    artistElement.style.cursor = "pointer";
+                    artistElement.addEventListener('click', function () {
+                        loadArtistTracklist(artistId);
+                    });
+                    document.getElementById('results').appendChild(artistElement);
+
+                    displayedArtists.add(`${artistId}_${artistName}`); // Aggiunge l'artista visualizzato all'insieme
+                }
+
+            });
+
+            return { displayedArtists };
+        } else {
+            console.error('Nessun artista trovato');
+            return null;
+        }
+    } catch (error) {
+        console.error('Errore durante la ricerca dell\'artista:', error);
+        return null;
+    }
+}
+
+
+function displayArtistDetails(name, image) {
+    // Mostra dettagli artista nell'interfaccia
+    const artistContainer = document.createElement('div');
+    artistContainer.classList.add('artist-details');
+
+    const artistImage = document.createElement('img');
+    artistImage.src = image;
+    artistImage.alt = 'Artist Image';
+    artistImage.style.width = '100px';
+    artistContainer.appendChild(artistImage);
+
+    const artistName = document.createElement('h4');
+    artistName.textContent = name;
+    artistContainer.appendChild(artistName);
+
+    const plusIconArtist = document.createElement('i');
+    plusIconArtist.classList.add('bi', 'bi-plus-circle-fill');
+    plusIconArtist.addEventListener('click', function() {
+        // Salva i dati associati all'artista nel localStorage
+        const artistData = {
+            name: artistName,
+            image: artistImage // Supponendo che artistImage sia disponibile in questo contesto
+            // Aggiungi altre proprietà che desideri salvare
+        };
+        localStorage.setItem('artist_' + artistId, JSON.stringify(artistData));
+        alert('Artista aggiunto al localStorage!');
+    });
+    artistContainer.appendChild(plusIconArtist);
+
+    document.getElementById('results').appendChild(artistContainer);
+}
+
+async function loadArtistTracklist(artistId) {
+    try {
+        const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`);
+        const data = await response.json();
+
+        if (data && data.data && data.data.length > 0) {
+            displayTracks(data.data);
+        } else {
+            console.error('Nessuna traccia trovata per questo artista');
+        }
+    } catch (error) {
+        console.error('Errore durante il caricamento della tracklist dell\'artista:', error);
+    }
+}
+
+
 
 function secondToMinutes(timeInSeconds) {
     const minutes = Math.floor(timeInSeconds / 60);
@@ -38,8 +167,23 @@ function displayTracks(tracks) {
         tracks.forEach(track => {
             const trackElement = document.createElement('div');
             trackElement.classList.add('mb-2', 'pl-3');
-            trackElement.textContent = `Track: ${track.title}, Rank: ${track.rank}, Duration: ${secondToMinutes(track.duration)}`;
+            trackElement.textContent = `Track: ${track.title}, Rank: ${track.rank}, Duration: ${secondToMinutes(track.duration)}, Artist: ${track.artist.name}`;
             resultsContainer.appendChild(trackElement);
+            const plusIconTrack = document.createElement('i');
+            plusIconTrack.classList.add('bi', 'bi-plus-circle-fill');
+            plusIconTrack.addEventListener('click', function() {
+                // Salva i dati associati alla traccia nel localStorage
+                const trackData = {
+                    title: track.title,
+                    rank: track.rank,
+                    duration: track.duration,
+                    artist: track.artist.name
+                    // Aggiungi altre proprietà che desideri salvare
+                };
+                localStorage.setItem('track_' + track.id, JSON.stringify(trackData));
+                alert('Traccia aggiunta al localStorage!');
+            });
+            trackElement.appendChild(plusIconTrack);
         });
     } else {
         const noTracksMessage = document.createElement('div');
@@ -65,12 +209,12 @@ function loadTracks(albumId) {
         .catch(error => console.error('Error:', error));
 }
 
-function displayResults(results, albumIds) {
+function displayResults(results, albumIds, query) {
     const resultsContainer = document.getElementById('results');
     resultsContainer.innerHTML = '';
 
     const albums = results.reduce((acc, track) => {
-        acc[track.album.id] = acc[track.album.id] || { tracks: [], cover: track.album.cover, totalDuration: 0 };
+        acc[track.album.id] = acc[track.album.id] || { tracks: [], cover: track.album.cover, totalDuration: 0, title: track.album.title };
         acc[track.album.id].tracks.push(track);
         acc[track.album.id].totalDuration += track.duration;
         return acc;
@@ -78,51 +222,69 @@ function displayResults(results, albumIds) {
 
     Object.keys(albums).forEach(albumId => {
         const album = albums[albumId];
-    
+
         album.tracks.sort((a, b) => b.rank - a.rank);
-    
+
         const albumContainer = document.createElement('div');
         albumContainer.classList.add('album-container');
-    
+
         const albumImage = document.createElement('img');
         albumImage.src = album.cover;
         albumImage.alt = "Album Cover";
         albumImage.style.width = "100px";
         albumContainer.appendChild(albumImage);
-    
-        const albumTitle = document.createElement('h5');
-        albumTitle.textContent = `Album: ${album.tracks[0].album.title}`;
+
+        const albumTitle = document.createElement('div');
+        albumTitle.textContent = `Album: ${album.title}`;
         albumContainer.appendChild(albumTitle);
-    
+
         const trackCountElement = document.createElement("div");
         trackCountElement.textContent = `Number of Tracks: ${album.number}`;
         albumContainer.appendChild(trackCountElement);
-    
+
+        
         const artistElement = document.createElement("div"); // Crea l'elemento per l'artista
         albumContainer.appendChild(artistElement);
-    
+        
         const totalDurationElement = document.createElement("div");
         totalDurationElement.textContent = `Total Duration: ${formatDuration(album.totalDuration)}`;
         albumContainer.appendChild(totalDurationElement);
-    
+        
+        const plusIconAlbum = document.createElement('i');
+        plusIconAlbum.classList.add('bi', 'bi-plus-circle-fill');
+        plusIconAlbum.addEventListener('click', function() {
+            // Salva i dati associati all'album nel localStorage
+            const albumData = {
+                title: album.title,
+                numberOfTracks: album.tracks.length,
+                totalDuration: album.totalDuration,
+                artist: artistName // Supponendo che artistName sia disponibile in questo contesto
+                // Aggiungi altre proprietà che desideri salvare
+            };
+            localStorage.setItem('album_' + albumId, JSON.stringify(albumData));
+            alert('Album aggiunto al localStorage!');
+        });
+        albumContainer.appendChild(plusIconAlbum); 
+
         resultsContainer.appendChild(albumContainer);
-    
         albumContainer.addEventListener('click', function () {
             loadTracks(album.tracks[0].album.id);
+            searchArtistId(query);
         });
-    
+
         // Calcola la durata totale degli album
         calculateTotalDuration([albumId])
             .then(({ totalDuration, number, artist }) => {
                 totalDurationElement.textContent = `Total Duration: ${totalDuration}`;
                 trackCountElement.textContent = `Number of Tracks: ${number}`;
                 artistElement.textContent = `Artist: ${artist}`;
+
             })
             .catch(error => {
                 console.error(`Errore durante il calcolo della durata totale per l'album ${albumId}:`, error);
             });
     });
-    
+
 }
 
 async function calculateTotalDuration(albumIds) {
@@ -155,4 +317,22 @@ async function calculateTotalDuration(albumIds) {
 
     // Restituisci la durata totale formattata, il numero di tracce e il nome dell'artista
     return { totalDuration: formatDuration(totalDuration), number: number, artist: artist };
+}
+
+async function searchTracks(query) {
+    const url = new URL('https://striveschool-api.herokuapp.com/api/deezer/search');
+    url.search = new URLSearchParams({ q: query });
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data && data.data && data.data.length > 0) {
+            displayTracks(data.data);
+        } else {
+            console.error('Nessuna traccia trovata');
+        }
+    } catch (error) {
+        console.error('Errore durante la ricerca delle tracce:', error);
+    }
 }
