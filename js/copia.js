@@ -1,9 +1,9 @@
 class AlbumCard {
-  constructor(nome, imgUrl, year, artist) {
-    this.nome = nome; 
+  constructor(nome,artist) {
     this.artist = artist; 
+    this.nome = nome;
     this.divAlbums = document.getElementById("cont-album");
-    this.card = this.createCard(nome, imgUrl, year, artist);
+    this.card = this.createCard(nome,artist);
     this.divAlbums.appendChild(this.card);
 
     // Aggiungi un listener di evento alla card stessa
@@ -25,7 +25,7 @@ class AlbumCard {
     return link;
   }
 
-  createCard(nome, imgUrl, year, artist) {
+  createCard(nome,artist) {
     const card = document.createElement('div');
     card.classList.add('card');
 
@@ -51,20 +51,45 @@ class AlbumCard {
 
   handleCardClick() {
     console.log(this.artist);
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${this.artist}`)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        // Esegui le operazioni desiderate con i dati ottenuti dalla chiamata API
+    this.fetchAlbums();
+  }
+
+  fetchAlbums() {
+    const apiUrl = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${this.nome}`;
+    this.retrieveAlbums(apiUrl);
+  }
+
+  retrieveAlbums(apiUrl) {
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Errore nella risposta API: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => { 
+        const albums = data.data; // Accedi all'array di dati
+        albums.forEach(album => {
+          nome = album.title;
+          imgUrl = album.cover;
+          
+        });
       })
       .catch(error => console.error('Errore durante la richiesta API', error));
   }
+  
+  
 }
-
+let array = [];
 let divAlbums = document.getElementById("cont-album");
 let albumCard = new AlbumCard("Fire", "assets/imgs/main/image-1.jpg", "2020", "The beatles");
-let albumCard2 = new AlbumCard("Mario", "assets/imgs/main/image-2.jpg", "2020", "Adele");
+let albumCard2 = new AlbumCard("The Eminem Show", "Eminem");
 
 
 
+let totalSeconds = 311;
 
+let minutes = Math.floor(totalSeconds / 60); // Trova il numero di minuti interi
+let seconds = totalSeconds % 60; // Trova il numero di secondi rimanenti
+
+console.log(`${totalSeconds} secondi sono ${minutes} minuti e ${seconds} secondi.`);
