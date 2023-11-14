@@ -15,7 +15,7 @@
         
         
         
-        <div id="centralPage" class="row col-8 bg-secondary py-3"> 
+        <div id="centralPage" class="row col-7 py-3 d-flex justify-content-center"> 
             <!-- Tab con frecce per andare avanti e dietro più sezione account utente -->
             <div id="bPageAccont" class="row col-12"> 
                 <div id="arrowPage" class="col"><button id="arrowLeft"><i class="bi bi-caret-left"></i></button><button id="arrowRight"><i class="bi bi-caret-right"></i></button></div>
@@ -23,11 +23,11 @@
             </div>
             
             <!-- Scheda brano in corso -->
-            <div id="songSection" class="row col-12 bg-dark text-light py-3"> <!-- container brano musica -->
+            <div id="songSection" class="row col-12 text-light py-3"> <!-- container brano musica -->
                 <!-- Immagine brano -->
-                <div class="col-3"><img id="imgSong" class="d-inline-block" src="assets/imgs/main/image-13.jpg" alt="immBrano"></div> 
+                <div class="col-2"><img id="imgSong" class="d-inline-block" src="assets/imgs/main/image-13.jpg" alt="immBrano"></div> 
                 <!-- Corpo centrale, info canzone -->
-                <div id="dataSong" class="col-6 px-5">
+                <div id="dataSong" class="col-8">
                     <p>ALBUM</p>
                     <h1 id="titoloCanzone">VIOLA (feat.Salmo)</h1>
                     <p id="artistaNome">Fedex, Salmo</p>
@@ -35,19 +35,66 @@
                     <div><button id="playSong" class="bg-success text-dark">Play</button><button id="salvaSong" class="bg-dark text-light">Salva</button></div>    
                 </div>
                 <!-- Nascondi Annuncio  -->
-                <div id="buttonAnnuncio" class="col-3"><button>NASCONDI ANNUNCI</button></div>
+                <div id="buttonAnnuncio" class="col-2"><button>NASCONDI ANNUNCI</button></div>
             </div>
             <h2>Buonasera</h2>
             
-            <div id="sezionePlaylistCentrale" class="container row bg-secondary"> <!-- container centrale playlist -->
-                <div class="row col-4 playList bg-dark d-flex justify-content-center"><img class="col-4" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8">early stage emily syndrome (sett-ott-2022)</p></div>
-                <div class="row col-4 playList bg-dark d-flex justify-content-start"><img class="col-4" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8">early stage emily syndrome (sett-ott-2022)</p></div>
-                <div class="row col-4 playList bg-dark d-flex justify-content-start"><img class="col-4" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8">early stage emily syndrome (sett-ott-2022)</p></div>
+            <div id="sezionePlaylistCentrale" class="container row"> <!-- container centrale playlist -->
+                <div class="col-4">
+                    <div class="playListCentral row playList "><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                </div>
+                <div class="col-4">
+                    <div class="playListCentral row playList "><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                </div>
+                <div class="col-4">
+                    <div class="playListCentral row playList "><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                </div>
             </div> <!-- container centrale playlist -->
             
+            <div><h3>Altro di ciò che ti piace</h3><div>VISUALIZZA TUTTO</div></div>
+            <div> <!-- Spazio schede musica random -->
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">R&B</h5>
+                      <p class="card-text">80's classics</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">R&B</h5>
+                      <p class="card-text">80's classics</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">R&B</h5>
+                      <p class="card-text">80's classics</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">R&B</h5>
+                      <p class="card-text">80's classics</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">R&B</h5>
+                      <p class="card-text">80's classics</p>
+                    </div>
+                </div>
+            </div><!-- Spazio musica random -->
         </div>
             
-        <div id="" class="col-1">barra destra</div>
+        <div id="" class="col-2">barra destra</div>
     </div>
     <div id="footerSong"></div>
     

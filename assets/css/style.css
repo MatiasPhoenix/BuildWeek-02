@@ -1,8 +1,37 @@
-#imgSong{
-    height: 180px;
+:root {
+    --colorBGHome: #171717;
+    --colorSchede: #2c2c2c;
+    --colorPlaySong: #030303;
 }
+h1, h2, h3, h4, h5, p {
+    color: white;
+}
+h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    
+}
+
+#imgSong{
+    height: 220px;
+}
+.imgPLaylist{
+    max-width: 20%;
+}
+
+
 #centralPage{
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    background-color: var(--colorBGHome);
+    background: linear-gradient(180deg, rgba(white, .15), rgba(white, 0));
     /* height: 100vh; */
+}
+#arrowLeft, #arrowRight {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    
 }
 #playSong, #salvaSong {
     border-radius: 20px 20px 20px 20px;
@@ -12,10 +41,32 @@
     /* margin-left: ; */
 }
 #songSection{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    background-color: var(--colorPlaySong) ;
+    
+    margin: 20px 20px;
 }
 #sezionePlaylistCentrale {
     margin-top: 20px;
     margin-bottom: 25px;
 }
+.playListCentral{
+    border-radius: 5px 5px 5px 5px;
+    align-items: center;
+    background-color: var(--colorSchede);
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.card{
+    background-color: rgb(43, 42, 42);
+    color: white;
+  }
+  .card-img-top{
+      padding: 20px;
+  }
+ 
+  
+  .card-title{
+      font-weight: 800;
+      
+  }
