@@ -3,15 +3,21 @@
     --colorSchede: #2c2c2c;
     --colorPlaySong: #030303;
 }
-h1, h2, h3, h4, h5, p {
+h1, h2, h3, h4, h5, p, #arrowRight, #arrowLeft {
     color: white;
+}
+h1 {
+    font-size: 5rem;
 }
 h2 {
     font-size: 2rem;
     font-weight: 500;
     
 }
-
+#arrowRight, #arrowLeft {
+    background-color: var(--colorPlaySong);
+    
+}
 #imgSong{
     height: 220px;
 }
@@ -27,22 +33,57 @@ h2 {
     background: linear-gradient(180deg, rgba(white, .15), rgba(white, 0));
     /* height: 100vh; */
 }
+#bPageAccont{
+
+    padding: 0px;
+}
+#arrowPage{
+    padding: 0px;
+}
 #arrowLeft, #arrowRight {
+    border: #030303;
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    
+}
+#arrowLeft {
+    margin-right: 15px;
+}
+#titoloCanzone{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#artistaNome {
+    margin-bottom: 15px;
+}
+#playSalvaButtons{
+    margin-top: 15px;
+}
+#nascAnnButton {
+    background-color: var(--colorBGHome);
+    color: grey;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+    padding: 5px 15px;
 }
 #playSong, #salvaSong {
     border-radius: 20px 20px 20px 20px;
-    padding: 10px 20px;
+    padding: 10px 25px;
+    
 }
-#saveSong {
+#playSong {
+    margin-right: 20px;
+    border: solid 1px #1ed760;
+    background-color: #1ed760;
+}
+#salvaSong {
+    border: solid 1px grey;
+    background-color: black;
     /* margin-left: ; */
 }
 #songSection{
     background-color: var(--colorPlaySong) ;
-    
+    border-radius: 5px 5px 5px 5px;
     margin: 20px 20px;
 }
 #sezionePlaylistCentrale {

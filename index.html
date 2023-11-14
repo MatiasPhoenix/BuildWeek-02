@@ -17,29 +17,30 @@
         
         <div id="centralPage" class="row col-7 py-3 d-flex justify-content-center"> 
             <!-- Tab con frecce per andare avanti e dietro più sezione account utente -->
-            <div id="bPageAccont" class="row col-12"> 
-                <div id="arrowPage" class="col"><button id="arrowLeft"><i class="bi bi-caret-left"></i></button><button id="arrowRight"><i class="bi bi-caret-right"></i></button></div>
+            <div id="bPageAccont" class="row"> 
+                <div id="arrowPage" class="col d-flex justify-content-start"><button id="arrowLeft"><i class="bi bi-caret-left"></i></button><button id="arrowRight"><i class="bi bi-caret-right"></i></button></div>
                 <div id="account" class="col">account</div>
             </div>
             
             <!-- Scheda brano in corso -->
-            <div id="songSection" class="row col-12 text-light py-3"> <!-- container brano musica -->
+            <div id="songSection" class="row text-light py-3"> <!-- container brano musica -->
                 <!-- Immagine brano -->
-                <div class="col-2"><img id="imgSong" class="d-inline-block" src="assets/imgs/main/image-13.jpg" alt="immBrano"></div> 
+                <div class="col-2 px-0"><img id="imgSong" class="d-inline-block py-2" src="assets/imgs/search/image-23.jpg" alt="immBrano"></div> 
                 <!-- Corpo centrale, info canzone -->
-                <div id="dataSong" class="col-8">
+                <div id="dataSong" class="col-8 px-0">
                     <p>ALBUM</p>
                     <h1 id="titoloCanzone">VIOLA (feat.Salmo)</h1>
                     <p id="artistaNome">Fedex, Salmo</p>
-                    <p>Ascoltando il nuovo singolo di ARTISTA</p>
-                    <div><button id="playSong" class="bg-success text-dark">Play</button><button id="salvaSong" class="bg-dark text-light">Salva</button></div>    
+                    <p>Ascoltando il nuovo singolo di "ARTISTA"</p>
+                    <div id="playSalvaButtons"><button id="playSong" class="text-dark">Play</button><button id="salvaSong" class="text-light">Salva</button></div>    
                 </div>
                 <!-- Nascondi Annuncio  -->
-                <div id="buttonAnnuncio" class="col-2"><button>NASCONDI ANNUNCI</button></div>
-            </div>
+                <div id="buttonAnnuncio" class="col-2"><button id="nascAnnButton">NASCONDI ANNUNCI</button></div>
+            </div><!-- Scheda brano in corso -->
+            <!-- Scheda brano in corso -->
             <h2>Buonasera</h2>
-            
-            <div id="sezionePlaylistCentrale" class="container row"> <!-- container centrale playlist -->
+            <!-- container centrale playlist -->
+            <div id="sezionePlaylistCentrale" class="container row px-0"> <!-- container centrale playlist -->
                 <div class="col-4">
                     <div class="playListCentral row playList "><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
                     <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
@@ -53,7 +54,8 @@
                     <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
                 </div>
             </div> <!-- container centrale playlist -->
-            
+            <!-- container centrale playlist -->
+
             <div class="row"><h3 class="col-6">Altro di ciò che ti piace</h3><p class="col-6">VISUALIZZA TUTTO</p></div>
             <div class="row d-flex justify-content-between"> <!-- Spazio schede musica random -->
                 
