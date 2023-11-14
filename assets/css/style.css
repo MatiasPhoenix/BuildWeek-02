@@ -4,7 +4,11 @@
     font-family: CircularStd, sans-serif;
   }
   
-  
+body {  
+  img {
+    max-width: 100%;}
+  }
+
   #footerSong {
     background-color: #212529;
     position: relative;
@@ -213,7 +217,6 @@
    
 }
 
-/* Stile per la foto profilo */
 .profile-image {
     width: 40px;
     height: 40px;
@@ -222,9 +225,9 @@
     margin-left: auto;
 }
 
-/* Stile per il blocco del nome e dei dati del brano */
+
 .activity-info {
-    flex: 1; /* Flessibilità per occupare lo spazio rimanente */
+    flex: 1; 
     text-align: left;
     font-size: 0.7rem;
     margin-right: 1rem;
@@ -288,3 +291,5 @@
   display: flex;
   align-items: center;
 }
+
+

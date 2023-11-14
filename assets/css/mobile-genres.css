@@ -1,0 +1,99 @@
+* {
+  
+    box-sizing: border-box;
+    font-family: CircularStd, sans-serif;
+  }
+  
+  body {
+  img {
+    max-width: 100%;}
+  }
+
+.mobgen-wrapper {
+ width: 100%;   
+ text-align: center;
+}
+ 
+  .mobgen {
+    width: 200px;
+    height: 130px;
+    
+       
+  }
+
+  
+
+  .card-title {
+    font-family: 'CircularStd', sans-serif;
+    color: white;
+    font-weight: 600;
+    position: absolute;
+    font-size: 22px;
+    padding-top: 10px;
+    margin-left: -5px;
+    text-wrap: wrap;
+    text-align: left;
+    
+    /* Aggiungi eventuali altre proprietà di stile del font, come dimensione e peso */
+}
+
+#podcast-mobgen {
+    background-color: #E03300;
+    border-radius: 0.4rem;
+}
+
+#perte-mobgen {
+    background-color: #1E3264;
+    border-radius: 0.4rem;
+
+}#news-mobgen {
+    background-color: #E8125C;
+    border-radius: 0.4rem;
+
+}#pop-mobgen {
+    background-color: #158A08;
+    border-radius: 0.4rem;
+
+}#hh-mobgen {
+    background-color: #BA5901;
+    border-radius: 0.4rem;
+
+}#de-mobgen {
+    background-color: #D84000;
+    border-radius: 0.4rem;
+
+}#latina-mobgen {
+    background-color:#E1118B;
+    border-radius: 0.4rem;
+
+}#classifiche-mobgen {
+    background-color:#8462A1;
+    border-radius: 0.4rem;
+}
+
+.mobgen img 
+{
+    width: 70px;
+    border-radius: 0.4rem;
+    transform: rotate(30deg);
+    position: absolute;
+    bottom: -8px;
+    right: -15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    position: relative;
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* O altra modalità di allineamento che preferisci */
+}
+
+.card {
+    flex: 0 0 48%; /* Regola la larghezza delle card in base alle tue preferenze */
+    margin-bottom: 1rem; /* Aggiungi spazio tra le card */
+}
