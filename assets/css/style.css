@@ -140,12 +140,13 @@
     z-index: 3;
 }
 
-/* Stile per l'intestazione */
+/* intestazione */
 .vertical-bar h3 {
-    font-size: 1rem;
+    font-size: 2rem;
+    color: white;
 }
 
-/* Stile per i messaggi */
+/*messaggi */
 .message {
     display: flex;
     align-items: center;
@@ -153,14 +154,114 @@
     font-size: 0.7rem;
 }
 
-/* Stile per le immagini profilo rotonde */
+/* immagini rotonde */
 .profile-image {
     width: 40px;
     height: 40px;
     border-radius: 50%; /* Per rendere l'immagine tonda */
-    margin-right: 10px;
+    margin: 10px;
 }
 
 .wrapper {position: fixed;
         background-color: #212529;
     bottom: 0;}
+
+    .vertical-bar {
+      font-family: CircularStd, sans-serif;
+      height: 100vh; 
+      background-color: black;
+      width: 100%;
+      text-align: center;
+      color: white;
+      position: fixed; /* Cambiato da absolute a fixed */
+      top: 0;
+      
+  }
+
+ 
+ 
+  #activity-list {
+    list-style-type: none; /* Rimuove i punti elenco */
+    padding: 0; /* Rimuove il padding predefinito */
+    margin: 0; /* Rimuove il margine predefinito */
+    position: absolute;
+}
+
+/* Stile per ogni singolo blocco di attività */
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+   
+}
+
+/* Stile per la foto profilo */
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    margin-left: auto;
+}
+
+/* Stile per il blocco del nome e dei dati del brano */
+.activity-info {
+    flex: 1; /* Flessibilità per occupare lo spazio rimanente */
+    text-align: left;
+    font-size: 0.7rem;
+    margin-right: 1rem;
+    line-height: 1rem;
+}
+
+/* Stile per il nome in grassetto */
+.name {
+    font-weight: bold;
+}
+
+/* Stile per il tempo */
+.time {
+    margin-left: auto;
+    color: #777;
+    font-size: 0.7rem;
+    
+ } 
+
+ #activity-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  padding-top: 0%;
+  }
+
+
+.vertical-bar h3 {
+  font-size: 1rem; /* Riduci la dimensione del font */
+  color: white;
+  margin-bottom: 10px;
+margin-top: auto;
+margin-right: 0;
+margin-left: 1rem;}
+
+
+
+/* Modifica stili per l'activity-item */
+.activity-info .album i {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+
+.message p {
+  font-size: 0.75rem; /* Aumenta leggermente la dimensione del corpo del nome */
+  margin-right: 5px; /* Aggiungi uno spazio tra il nome e il tempo */
+}
+
+
+#user-icon {
+  font-size: 1.3rem; /* Imposta la dimensione dell'icona utente */
+  margin-right: 3px; /* Aggiungi uno spazio tra l'icona e il testo */
+  color: white;
+  position: absolute;
+  text-align: right;
+}
