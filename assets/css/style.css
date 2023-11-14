@@ -57,14 +57,15 @@ h2 {
     padding-left: 0px;
 }
 
-.card{
+.cardAlbum{
     background-color: rgb(43, 42, 42);
     color: white;
+    max-width: 250px;
   }
-  .card-img-top{
+  /* .card-img-top{
       padding: 20px;
   }
- 
+  */
   
   .card-title{
       font-weight: 800;
