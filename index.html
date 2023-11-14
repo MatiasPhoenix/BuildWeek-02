@@ -15,49 +15,52 @@
         
         
         
-        <div id="centralPage" class="row col-7 py-3 d-flex justify-content-center"> 
+        <div id="centralPage" class="row col-7 py-3 d-flex align-items-center justify-content-center"> 
             <!-- Tab con frecce per andare avanti e dietro più sezione account utente -->
-            <div id="bPageAccont" class="row"> 
-                <div id="arrowPage" class="col d-flex justify-content-start"><button id="arrowLeft"><i class="bi bi-caret-left"></i></button><button id="arrowRight"><i class="bi bi-caret-right"></i></button></div>
-                <div id="account" class="col">account</div>
+            <div id="bPageAccont" class="row d-flex justify-content-between"> 
+                <div id="arrowPage" class="col"><button id="arrowLeft"><i class="bi bi-caret-left"></i></button><button id="arrowRight"><i class="bi bi-caret-right"></i></button></div>
+                <div id="account" class="col d-flex justify-content-end align-items-center"><div class="sezioneImgAccount"><img class="imgProfile mx-2" src="assets/imgs/main/image-12.jpg" alt=""></div><div class="text-light sezioneAccount">Guybrush Threepwood...<i class="bi bi-caret-down-fill"></i></div></div>
             </div>
             
             <!-- Scheda brano in corso -->
-            <div id="songSection" class="row text-light py-3"> <!-- container brano musica -->
-                <!-- Immagine brano -->
-                <div class="col-2 px-0"><img id="imgSong" class="d-inline-block py-2" src="assets/imgs/search/image-23.jpg" alt="immBrano"></div> 
-                <!-- Corpo centrale, info canzone -->
-                <div id="dataSong" class="col-8 px-0">
-                    <p>ALBUM</p>
-                    <h1 id="titoloCanzone">VIOLA (feat.Salmo)</h1>
-                    <p id="artistaNome">Fedex, Salmo</p>
-                    <p>Ascoltando il nuovo singolo di "ARTISTA"</p>
-                    <div id="playSalvaButtons"><button id="playSong" class="text-dark">Play</button><button id="salvaSong" class="text-light">Salva</button></div>    
-                </div>
-                <!-- Nascondi Annuncio  -->
-                <div id="buttonAnnuncio" class="col-2"><button id="nascAnnButton">NASCONDI ANNUNCI</button></div>
-            </div><!-- Scheda brano in corso -->
+                <div id="songSection" class="row col-12 text-light my-3 py-3"> <!-- container brano musica -->
+                    <!-- Immagine brano -->
+                    <div class="col-2 px-0"><img id="imgSong" class="d-inline-block py-2" src="assets/imgs/search/image-23.jpg" alt="immBrano"></div> 
+                    <!-- Corpo centrale, info canzone -->
+                    <div id="dataSong" class="col-8 px-0">
+                        <p>ALBUM</p>
+                        <h1 id="titoloCanzone">VIOLA (feat.Salmo)</h1>
+                        <p id="artistaNome">Fedex, Salmo</p>
+                        <p>Ascoltando il nuovo singolo di "ARTISTA"</p>
+                        <div id="playSalvaButtons"><button id="playSong" class="text-dark">Play</button><button id="salvaSong" class="text-light">Salva</button></div>    
+                    </div>
+                    <!-- Nascondi Annuncio  -->
+                    <div id="buttonAnnuncio" class="col-2"><button id="nascAnnButton">NASCONDI ANNUNCI</button></div>
+                </div><!-- Scheda brano in corso -->
             <!-- Scheda brano in corso -->
+            
             <h2>Buonasera</h2>
             <!-- container centrale playlist -->
-            <div id="sezionePlaylistCentrale" class="container row px-0"> <!-- container centrale playlist -->
-                <div class="col-4">
-                    <div class="playListCentral row playList "><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
-                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+            <div id="sezionePlaylistCentrale" class="row px-0"> <!-- container centrale playlist -->
+                <div class="sezPlayCenter col-4">
+                    <div class="playListCentral row playList"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
                 </div>
-                <div class="col-4">
-                    <div class="playListCentral row playList "><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
-                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                <div class="sezPlayCenter col-4">
+                    <div class="playListCentral row playList"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
                 </div>
-                <div class="col-4">
-                    <div class="playListCentral row playList "><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
-                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 px-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                <div class="sezPlayCenter col-4 ">
+                    <div class="playListCentral row playList"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
+                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
                 </div>
             </div> <!-- container centrale playlist -->
             <!-- container centrale playlist -->
+        
 
             <div class="row"><h3 class="col-6">Altro di ciò che ti piace</h3><p class="col-6">VISUALIZZA TUTTO</p></div>
-            <div class="row d-flex justify-content-between"> <!-- Spazio schede musica random -->
+            <!-- Spazio musica random -->
+            <div id="musicRandom" class="row col-12 d-flex justify-content-between"> <!-- Spazio musica random -->
                 
                 <div class="cardAlbum card col-3" style="width: 18rem;">
                     <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
@@ -96,6 +99,8 @@
                 </div>
                 
             </div><!-- Spazio musica random -->
+            <!-- Spazio musica random -->
+
         </div>
             
         <div id="" class="col-2">barra destra</div>

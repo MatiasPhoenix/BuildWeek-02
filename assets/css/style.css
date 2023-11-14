@@ -25,13 +25,26 @@ h2 {
     max-width: 20%;
 }
 
+.imgProfile{
+    width: 25px;
+    border-radius: 50%;
 
+}
+.sezioneAccount{
+    background-color: var(--colorPlaySong);
+}
+.sezioneImgAccount{
+    padding: 1px;
+    
+    border-radius: 50%
+}
 #centralPage{
     /* margin-left: 20px;
     margin-right: 20px; */
     background-color: var(--colorBGHome);
     background: linear-gradient(180deg, rgba(white, .15), rgba(white, 0));
     /* height: 100vh; */
+    padding: 45px;
 }
 #bPageAccont{
 
@@ -84,7 +97,8 @@ h2 {
 #songSection{
     background-color: var(--colorPlaySong) ;
     border-radius: 5px 5px 5px 5px;
-    margin: 20px 20px;
+   
+    
 }
 #sezionePlaylistCentrale {
     margin-top: 20px;
@@ -97,7 +111,9 @@ h2 {
     margin-left: 0px;
     padding-left: 0px;
 }
-
+.sezPlayCenter{
+    max-width: 40%;
+}
 .cardAlbum{
     background-color: rgb(43, 42, 42);
     color: white;
@@ -111,4 +127,12 @@ h2 {
   .card-title{
       font-weight: 800;
       
+  }
+  #musicRandom{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  #prova {
+    padding-left: 2px;
   }
