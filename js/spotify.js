@@ -78,45 +78,57 @@ function displayResults(results, albumIds) {
 
     Object.keys(albums).forEach(albumId => {
         const album = albums[albumId];
-
+    
         album.tracks.sort((a, b) => b.rank - a.rank);
-
+    
         const albumContainer = document.createElement('div');
         albumContainer.classList.add('album-container');
-
+    
         const albumImage = document.createElement('img');
         albumImage.src = album.cover;
         albumImage.alt = "Album Cover";
         albumImage.style.width = "100px";
         albumContainer.appendChild(albumImage);
-
+    
         const albumTitle = document.createElement('h5');
         albumTitle.textContent = `Album: ${album.tracks[0].album.title}`;
         albumContainer.appendChild(albumTitle);
-
+    
+        const trackCountElement = document.createElement("div");
+        trackCountElement.textContent = `Number of Tracks: ${album.number}`;
+        albumContainer.appendChild(trackCountElement);
+    
+        const artistElement = document.createElement("div"); // Crea l'elemento per l'artista
+        albumContainer.appendChild(artistElement);
+    
         const totalDurationElement = document.createElement("div");
         totalDurationElement.textContent = `Total Duration: ${formatDuration(album.totalDuration)}`;
         albumContainer.appendChild(totalDurationElement);
-
+    
         resultsContainer.appendChild(albumContainer);
-
+    
         albumContainer.addEventListener('click', function () {
             loadTracks(album.tracks[0].album.id);
         });
-
+    
         // Calcola la durata totale degli album
         calculateTotalDuration([albumId])
-            .then(totalDuration => {
+            .then(({ totalDuration, number, artist }) => {
                 totalDurationElement.textContent = `Total Duration: ${totalDuration}`;
+                trackCountElement.textContent = `Number of Tracks: ${number}`;
+                artistElement.textContent = `Artist: ${artist}`;
             })
             .catch(error => {
                 console.error(`Errore durante il calcolo della durata totale per l'album ${albumId}:`, error);
             });
     });
+    
 }
 
 async function calculateTotalDuration(albumIds) {
     let totalDuration = 0;
+    let number = 0;
+    let artist = ''; // Inizializza la variabile artist
 
     // Itera su ciascun ID dell'album
     for (const albumId of albumIds) {
@@ -130,12 +142,17 @@ async function calculateTotalDuration(albumIds) {
                 // Calcola la durata totale delle tracce dell'album
                 const albumTotalDuration = data.tracks.data.reduce((acc, track) => acc + track.duration, 0);
                 totalDuration += albumTotalDuration;
+                const numberOfTracks = data.tracks.data.reduce((acc, track) => acc + 1, 0);
+                number += numberOfTracks;
+
+                // Assegna il nome dell'artista alla variabile artist
+                artist = data.artist.name;
             }
         } catch (error) {
             console.error(`Errore durante il recupero delle informazioni per l'album ${albumId}:`, error);
         }
     }
 
-    // Restituisci la durata totale formattata
-    return formatDuration(totalDuration);
+    // Restituisci la durata totale formattata, il numero di tracce e il nome dell'artista
+    return { totalDuration: formatDuration(totalDuration), number: number, artist: artist };
 }
