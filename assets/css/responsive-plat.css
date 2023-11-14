@@ -1,0 +1,61 @@
+#containerPlay{
+    text-align: center;
+}
+#player{
+    background-color: #282828;
+    color: #cacaca;
+    padding-inline: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-block: 10px;
+}
+#player p{
+    margin-bottom: 0%;
+    margin-right: 7px;
+}
+a{
+    text-decoration: none;
+    color: #cacaca;
+    font-weight: 400;
+    font-style: normal;
+}
+a:hover{
+    color: white;
+}
+#library{
+    width: 20px;
+    fill: #cacaca;
+}
+.navIconResponse{
+    font-size: 20px;
+    margin-inline: 5px;
+    color: #cacaca;
+}
+.navIconResponse:hover{
+    color: white; 
+}
+#stikyPlayer{
+    position: sticky;
+    bottom: 0px;
+    padding-bottom: 20px;
+    background: rgb(0,0,0);
+    background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7904411764705882) 100%, rgba(36,36,36,1) 100%);
+}
+@media screen and (min-width: 375px){
+    #player{
+        padding-inline: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+  }
+  @media screen and (min-width: 600px){
+    #player{
+        padding-block: 10px;
+    }
+   .navIconResponse{
+        font-size: 30px;
+        margin-inline: 10px;
+    }  
+}

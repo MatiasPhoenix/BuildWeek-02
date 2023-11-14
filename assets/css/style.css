@@ -14,6 +14,9 @@ body {
     width: 20px;
     fill: #cacaca;
 }
+#library:hover{
+    fill: white;
+}
 .icons{
     padding: 2px 2px;
 }
@@ -25,9 +28,6 @@ background: linear-gradient(156deg, rgba(56,22,169,1) 0%, rgba(140,131,168,1) 69
 #bookmark{
     background-color: #004537;
     color: #149643;
-}
-#library:hover{
-    fill: white;
 }
 a{
     text-decoration: none;
