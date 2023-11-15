@@ -1,0 +1,50 @@
+{
+     "artisti": [
+       {
+         "id": "412",
+         "nome": "Nome dell'artista 1",
+         "genere": "Genere musicale 1",
+         "immagine": "URL immagine 1",
+         "topCanzoni": "Link top canzoni 1"
+       },
+       {
+         "id": "713",
+         "nome": "Nome dell'artista 2",
+         "genere": "Genere musicale 2",
+         "immagine": "URL immagine 2",
+         "topCanzoni": "Link top canzoni 2"
+       },
+       {
+         "id": "910",
+         "nome": "Nome dell'artista 3",
+         "genere": "Genere musicale 3",
+         "immagine": "URL immagine 3",
+         "topCanzoni": "Link top canzoni 3"
+       }
+     ],
+     "album": [
+       {
+         "id": "75621062",
+         "titolo": "Titolo dell'album 1",
+         "artistaId": "412",
+         "immagine": "URL immagine album 1",
+         "tracklist": "Link tracklist album 1"
+       },
+       {
+         "id": "89563210",
+         "titolo": "Titolo dell'album 2",
+         "artistaId": "713",
+         "immagine": "URL immagine album 2",
+         "tracklist": "Link tracklist album 2"
+       },
+       {
+         "id": "15987463",
+         "titolo": "Titolo dell'album 3",
+         "artistaId": "910",
+         "immagine": "URL immagine album 3",
+         "tracklist": "Link tracklist album 3"
+       }
+       
+     ]
+}
+   

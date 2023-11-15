@@ -1,0 +1,501 @@
+:root {
+    --colorBGHome: #171717;
+    --colorSchede: #2c2c2c;
+    --colorPlaySong: #030303;
+}
+h1, h2, h3, h4, h5, p, #arrowRight, #arrowLeft {
+    color: white;
+}
+h1 {
+    font-size: 5rem;
+}
+h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    
+}
+#arrowRight, #arrowLeft {
+    background-color: var(--colorPlaySong);
+    
+}
+#imgSong{
+    height: 220px;
+}
+.imgPLaylist{
+    max-width: 20%;
+}
+
+body{
+    box-sizing: border-box;
+}
+#account {
+    height: 50px;
+}
+.sezioneAccount, .sezioneImgAccount{
+    background-color: var(--colorPlaySong);
+    
+}
+.sezioneAccount{
+    padding: 5px;
+    border-radius: 0px 30px 30px 0px;
+}
+.sezioneImgAccount {
+    
+    padding: 3px;
+    border-radius: 50% 50% 50% 50%;
+}
+.imgProfile{
+    
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+#centralPage{
+    background-color: var(--colorBGHome);
+    background: linear-gradient(180deg, rgba(white, .15), rgba(white, 0));
+    padding: 45px;
+}
+#bPageAccont{
+
+    padding: 0px;
+}
+#arrowPage{
+    padding: 0px;
+}
+#arrowLeft, #arrowRight {
+    border: #030303;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+#arrowLeft {
+    margin-right: 15px;
+}
+#titoloCanzone{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#artistaNome {
+    margin-bottom: 15px;
+}
+#playSalvaButtons{
+    margin-top: 15px;
+}
+#nascAnnButton {
+    background-color: var(--colorBGHome);
+    color: grey;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+    padding: 5px 15px;
+}
+#playSong, #salvaSong {
+    border-radius: 20px 20px 20px 20px;
+    padding: 10px 25px;
+    
+}
+#playSong {
+    margin-right: 20px;
+    border: solid 1px #1ed760;
+    background-color: #1ed760;
+}
+#salvaSong {
+    border: solid 1px grey;
+    background-color: black;
+    /* margin-left: ; */
+}
+#songSection{
+    background-color: var(--colorPlaySong) ;
+    border-radius: 5px 5px 5px 5px;
+   
+    
+}
+#sezionePlaylistCentrale {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+.playListCentral{
+    border-radius: 5px 5px 5px 5px;
+    align-items: center;
+    background-color: var(--colorSchede);
+    margin-left: 0px;
+    padding-left: 0px;
+}
+.sezPlayCenter{
+    max-width: 40%;
+}
+.cardAlbum{
+    background-color: rgb(43, 42, 42);
+    color: white;
+    max-width: 250px;
+  }
+  /* .card-img-top{
+      padding: 20px;
+  }
+  */
+  #altroSection{
+    margin: 20px auto;
+  }
+  .card-title{
+      font-weight: 800;
+      
+  }
+  #musicRandom{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+ 
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: CircularStd, sans-serif;
+  }
+  
+body {  
+  img {
+    max-width: 100%;}
+  }
+
+  #footerSong {
+    background-color: #212529;
+    position: relative;
+  }
+  
+  #footerSong .wrapper button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.5rem;
+    font-weight: bold;
+  }
+  
+  a {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+  }
+  
+  #footerSong p {
+    display: flex;
+    align-items: center;
+  }
+  
+  #footerSong p img {
+    vertical-align: middle;
+    margin-right: 1rem;
+    border-radius: 0.2rem;
+  }
+  
+  #song-progress {
+    width: 100%;
+    height: 4px;
+    border: none;
+    outline: none;
+  }
+  
+  #footerSong {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  
+  #player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  #player-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  
+  #progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    height: 4px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    flex-direction: row;
+  }
+  
+  #footerSong .row,
+  #footerSong .col-4 {
+    margin: 0;
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+  
+  #right-bottom {
+    width: 100%;
+  }
+  
+  #footerSong p .foot-link {
+    font-family: 'CircularStd', sans-serif; 
+  }
+  
+  #footerSong .wrapper button i,
+  #player-icons button i,
+  #footer-icons button i {
+    font-size: 0.9rem; 
+  }
+
+  #volume-bar {
+
+    height: 3px;
+    background-color: #ccc;
+    border-radius: 20px;
+    width: 4rem;
+    
+  }
+  
+  #footer-right-icons button i {
+    font-size: 2rem;
+  }
+
+
+  .subtext {display: block;
+            line-height: 1.2rem;
+            font-weight: 200;
+            font-style: italic;
+  }
+
+  .wrapper {
+    width: 100%;
+  }
+
+  #footerSong .foot-link {
+    display: flex;
+    align-items: center;
+}
+
+#footerSong .foot-link i {
+    margin-left: 0.5rem;
+}
+
+
+
+
+
+
+
+
+**********************************************
+**********************************************
+  /*vertical bar*/
+
+
+.vertical-bar {
+    padding-top: 2rem;
+    font-family: CircularStd, sans-serif;
+    height: 100vh; /* Altezza a tutta schermo */
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    color: white;
+    position: absolute;
+    z-index: 3;
+}
+
+
+
+/* intestazione */
+.vertical-bar h3 {
+    font-size: 2rem;
+    color: white;
+}
+
+/*messaggi */
+.message {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 0.7rem;
+}
+
+/* immagini rotonde */
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Per rendere l'immagine tonda */
+    margin: 10px;
+}
+
+.wrapper {position: fixed;
+        background-color: #212529;
+    bottom: 0;}
+
+    .vertical-bar {
+      font-family: CircularStd, sans-serif;
+      height: 100vh; 
+      background-color: black;
+      width: 100%;
+      text-align: center;
+      color: white;
+      position: fixed; /* Cambiato da absolute a fixed */
+      top: 0;
+      
+  }
+
+ 
+ 
+  #activity-list {
+    list-style-type: none; /* Rimuove i punti elenco */
+    padding: 0; /* Rimuove il padding predefinito */
+    margin: 0; /* Rimuove il margine predefinito */
+    position: absolute;
+}
+
+/* Stile per ogni singolo blocco di attività */
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+   
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    margin-left: auto;
+}
+
+
+.activity-info {
+    flex: 1; 
+    text-align: left;
+    font-size: 0.7rem;
+    margin-right: 1rem;
+    line-height: 1rem;
+}
+
+/* Stile per il nome in grassetto */
+.name {
+    font-weight: bold;
+}
+
+/* Stile per il tempo */
+.time {
+    margin-left: auto;
+    color: #777;
+    font-size: 0.7rem;
+    
+ } 
+
+ #activity-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  
+  }
+
+
+.vertical-bar h3 {
+  font-size: 1rem; 
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+  margin-right: 1rem;
+  margin-left: 1rem;}
+
+
+
+
+.activity-info .album i {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+
+.message p {
+  font-size: 0.75rem; 
+  margin-right: 5px; 
+}
+
+
+#user-icon {
+  font-size: 1.3rem; 
+  margin-left: 13rem; 
+  color:   #777;
+  position: absolute;
+
+}
+
+#intestazione {
+  display: flex;
+  align-items: center;
+}
+
+
+body {
+    overflow: hidden;
+  }
+  #containerSinistra{
+    height: 100vh;
+}
+  #containerTop{
+    height: 220px;
+  }
+  .navIcons{
+    font-size: 20px;
+  }
+  #library{
+    width: 20px;
+    fill: #cacaca;
+}
+#library:hover{
+    fill: white;
+}
+.icons{
+    padding: 2px 2px;
+}
+#heart{
+    background: rgb(56,22,169);
+background: linear-gradient(156deg, rgba(56,22,169,1) 0%, rgba(140,131,168,1) 69%, rgba(255,255,255,1) 100%);
+}
+
+#bookmark{
+    background-color: #004537;
+    color: #149643;
+}
+a{
+    text-decoration: none;
+    color: #cacaca;
+    font-weight: 400;
+    font-style: normal;
+}
+a:hover{
+    color: white;
+}
+#separatore{
+    width: 90%;
+    border-top: 2px solid #4D4D4D;
+}
+#containerPlaylist{
+    line-height: 2rem;
+    height: 420px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    overflow-y: scroll;
+}
+#containerPlaylist::-webkit-scrollbar{
+    background-color:transparent;
+    width: 14px;
+
+}
+::-webkit-scrollbar-thumb {
+    background: #898989;
+}
