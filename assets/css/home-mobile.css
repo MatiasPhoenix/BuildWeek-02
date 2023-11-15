@@ -1,0 +1,51 @@
+body{
+    background-color: rgb(42, 39, 39);
+    color: white;
+}
+
+
+.nav{
+    display: flexbox;
+    padding-left: 10px;
+    padding-top: 20px;
+    font-family: "Circular";
+    src: url(../fonts/CircularStd-Medium.otf);
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#icons svg{
+    margin:0px 5px;
+}
+
+p{
+    display: inline;
+   padding: 30px;
+    font-size: 1.2rem;
+}
+.card{
+    background-color: rgb(54, 51, 51);
+    display: flex;
+}
+
+.container img{
+    width: 80px;
+    background-color: rgb(42, 39, 39);
+}
+span{
+    color: white;
+   
+
+}
+#mix{
+    width: 180px;
+}
+.text{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.play {
+    padding-top: 10px;
+}
+
+
