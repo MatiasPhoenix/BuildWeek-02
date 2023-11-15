@@ -402,3 +402,22 @@ function playTrackPreview(previewLink) {
         console.log('Nessun link di anteprima disponibile per questa traccia o elemento audio non trovato.');
     }
 }
+
+
+const searchIcon = document.getElementById('searchIcon');
+const searchCentral = document.querySelector('.search-central');
+const centralPage = document.getElementById('centralPage');
+
+searchIcon.addEventListener('click', function() {
+    if (centralPage.classList.contains('d-none')) {
+        centralPage.classList.remove('d-none');
+        searchCentral.classList.add('d-none');
+    } else {
+        centralPage.classList.add('d-none');
+        searchCentral.classList.remove('d-none');
+    }
+});
+
+
+
+
