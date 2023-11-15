@@ -440,3 +440,62 @@ body {
 }
 
 
+body {
+    overflow: hidden;
+  }
+  #containerSinistra{
+    height: 100vh;
+}
+  #containerTop{
+    height: 220px;
+  }
+  .navIcons{
+    font-size: 20px;
+  }
+  #library{
+    width: 20px;
+    fill: #cacaca;
+}
+#library:hover{
+    fill: white;
+}
+.icons{
+    padding: 2px 2px;
+}
+#heart{
+    background: rgb(56,22,169);
+background: linear-gradient(156deg, rgba(56,22,169,1) 0%, rgba(140,131,168,1) 69%, rgba(255,255,255,1) 100%);
+}
+
+#bookmark{
+    background-color: #004537;
+    color: #149643;
+}
+a{
+    text-decoration: none;
+    color: #cacaca;
+    font-weight: 400;
+    font-style: normal;
+}
+a:hover{
+    color: white;
+}
+#separatore{
+    width: 90%;
+    border-top: 2px solid #4D4D4D;
+}
+#containerPlaylist{
+    line-height: 2rem;
+    height: 420px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    overflow-y: scroll;
+}
+#containerPlaylist::-webkit-scrollbar{
+    background-color:transparent;
+    width: 14px;
+
+}
+::-webkit-scrollbar-thumb {
+    background: #898989;
+}
