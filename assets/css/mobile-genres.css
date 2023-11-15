@@ -90,10 +90,10 @@
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly; /* O altra modalità di allineamento che preferisci */
+    justify-content: space-evenly; 
 }
 
 .card {
-    flex: 0 0 48%; /* Regola la larghezza delle card in base alle tue preferenze */
-    margin-bottom: 1rem; /* Aggiungi spazio tra le card */
+    flex: 0 0 48%; 
+    margin-bottom: 1rem; 
 }
