@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -10,131 +11,81 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="" class="row">
-        <div id="" class="col-3">barra sinistra</div>
-        
-        
-        
-        <div id="centralPage" class="row col-7 py-3 d-flex align-items-center justify-content-center"> 
-            
-            <div id="bPageAccont" class="row d-flex justify-content-between align-items-center"> 
-                <!-- Tab con frecce per andare avanti e dietro più sezione account utente -->
-                <div id="arrowPage" class="col"><button id="arrowLeft"><i class="bi bi-caret-left"></i></button><button id="arrowRight"><i class="bi bi-caret-right"></i></button></div>
-                <!-- Button account (in cima a destra) -->
-                <div id="account" class="col d-flex justify-content-end align-items-center"><div class="sezioneImgAccount "><img class="imgProfile " src="assets/imgs/main/image-12.jpg" alt=""></div><div class="text-light sezioneAccount">Guybrush Threepwood...<i class="bi bi-caret-down-fill"></i></div></div>
-            </div>
-            
-            <!-- Scheda brano in corso -->
-                <div id="songSection" class="row col-12 text-light my-3 py-3"> <!-- container brano musica -->
-                    <!-- Immagine brano -->
-                    <div class="col-2 px-0"><img id="imgSong" class="d-inline-block py-2" src="assets/imgs/search/image-23.jpg" alt="immBrano"></div> 
-                    <!-- Corpo centrale, info canzone -->
-                    <div id="dataSong" class="col-8 px-0">
-                        <p>ALBUM</p>
-                        <h1 id="titoloCanzone">VIOLA (feat.Salmo)</h1>
-                        <p id="artistaNome">Fedex, Salmo</p>
-                        <p>Ascoltando il nuovo singolo di "ARTISTA"</p>
-                        <div id="playSalvaButtons"><button id="playSong" class="text-dark">Play</button><button id="salvaSong" class="text-light">Salva</button></div>    
-                    </div>
-                    <!-- Nascondi Annuncio  -->
-                    <div id="buttonAnnuncio" class="col-2"><button id="nascAnnButton">NASCONDI ANNUNCI</button></div>
-                </div><!-- Scheda brano in corso -->
-            <!-- Scheda brano in corso -->
-            
-            <h2>Buonasera</h2>
-            <!-- container centrale playlist -->
-            <div id="sezionePlaylistCentrale" class="row px-0"> <!-- container centrale playlist -->
-                <div class="sezPlayCenter col-4">
-                    <div class="playListCentral row playList"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
-                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
-                </div>
-                <div class="sezPlayCenter col-4">
-                    <div class="playListCentral row playList"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
-                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
-                </div>
-                <div class="sezPlayCenter col-4 ">
-                    <div class="playListCentral row playList"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
-                    <div class="playListCentral row playList my-3"><img class="imgPLaylist col-4 pe-1 ps-0" src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="col-8 ">early stage emily syndrome (sett-ott-2022)</p></div>
-                </div>
-            </div> <!-- container centrale playlist -->
-            <!-- container centrale playlist -->
-        
+    <div id="" class="container row">
+        <div id="" class="col-4">barra sinistra</div>
+        <div id="" class="col-6">pagina centrale</div>
 
-            <div id="altroSection" class="row d-flex justify-content-between"><h3 class="col-6">Altro di ciò che ti piace</h3><p class="col-6">VISUALIZZA TUTTO</p></div>
-            <!-- Spazio musica random -->
-            <div id="musicRandom" class="row col-12 d-flex justify-content-between"> <!-- Spazio musica random -->
-                
-                <div class="cardAlbum card col-3" style="width: 18rem;">
-                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">R&B</h5>
-                      <p class="card-text">80's classics</p>
-                    </div>
-                </div>
-                <div class="cardAlbum card col-3" style="width: 18rem;">
-                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">R&B</h5>
-                      <p class="card-text">80's classics</p>
-                    </div>
-                </div>
-                <div class="cardAlbum card col-3" style="width: 18rem;">
-                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">R&B</h5>
-                      <p class="card-text">80's classics</p>
-                    </div>
-                </div>
-                <div class="cardAlbum card col-3" style="width: 18rem;">
-                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">R&B</h5>
-                      <p class="card-text">80's classics</p>
-                    </div>
-                </div>
-                <div class="cardAlbum card col-3" style="width: 18rem;">
-                    <img class="card-img-top" src="assets/imgs/search/image-12.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">R&B</h5>
-                      <p class="card-text">80's classics</p>
-                    </div>
-                </div>
-                
-            </div><!-- Spazio musica random -->
-            <!-- Spazio musica random -->
 
-        </div>
-            
+
+<!--Barbara-->
+
+
         <div id="" class="col-2">barra destra</div>
+
+
+
+
+
+
     </div>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <form id="searchForm">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search for albums, artists, tracks" id="searchQuery">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="artistCheckbox">
-                            <label class="form-check-label" for="artistCheckbox">For Artist</label>
+   
+    <div id="" class="wrapper row">
+        <div id="" class="col-4">barra sinistra</div>
+        <div id="" class="col-6">pagina centrale</div>
+        
+        <div id="" class="col-2"> <div class="vertical-bar">
+            <div class="col-2">
+                <div class="vertical-bar">
+                    <div id="activity-bar">
+                        <div id="intestazione">
+                            <h3>Attività amici</h3>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="albumCheckbox">
-                            <label class="form-check-label" for="albumCheckbox">For Album</label>
-                        </div>
-                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        <div id="user-icon"><i class="bi bi-person-add"></i></div>
                     </div>
-                </form>
-                <div id="results"></div>
+                    <ul id="activity-list">
+                        <li class="activity-item">
+                            <img src="assets/imgs/main/image-1.jpg" class="profile-image" alt="Profilo 1">
+                            <div class="activity-info">
+                                <p class="name">Charlie Hookam</p>
+                                <p>In Camera - Yumi Zouma</p>
+                                <p class="album"><i class="bi bi-disc"></i> EP III</p>
+                            </div>
+                            <p class="time">4 ore</p>
+                        </li>
+
+                        <li class="activity-item">
+                            <img src="assets/imgs/main/image-10.jpg" class="profile-image" alt="Profilo 1">
+                            <div class="activity-info">
+                                <p class="name">lightdark02</p>
+                                <p>Aimed to Kill -Jade LeMac</p>
+                                <p class="album"><i class="bi bi-disc"></i> Aimed to Kill</p>
+                            </div>
+                            <p class="time">8 ore</p>
+                        </li>
+
+                        <li class="activity-item">
+                            <img src="assets/imgs/main/image-13.jpg" class="profile-image" alt="Profilo 1">
+                            <div class="activity-info">
+                                <p class="name">Valeria Traverso</p>
+                                <p>New Kings - Sleeping Wolf</p>
+                                 <p class="album"><i class="bi bi-music-note-beamed"></i> Twint Badass mood</p>
+                            </div>
+                            <p class="time">3 giorni</p>
+                        </li>
+                        <!-- Aggiungi altri elementi simili per le attività degli amici -->
+                    </ul>    <!-- Aggiungi altri elementi utente con le relative attività -->
+                    </div>
+                </div>
             </div>
         </div>
-        <audio id="audioPlayer" controls style="display: none;"></audio>
+        </div>
     </div>
-    
+
+   
     <div id="footerSong">
         <div class="wrapper mx-0">
             <div class="row py-3">
                 <div class="col-4">
-                    <audio id="audioPlayer" src="link_al_tuo_file.mp3"></audio>
                     <a class="song-img" href="#">
                         <p>
                             <img src="assets/imgs/search/image-27.jpg" width="40" height="40" alt="">
@@ -166,7 +117,9 @@
             </div>
         </div>
     </div>
-    
+      
+    <!--fine Barbara-->
+
     <script src="assets/scripts/script.js"></script>
     <script src="js/spotify.js"></script>
 </body>
