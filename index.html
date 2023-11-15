@@ -121,7 +121,42 @@
         <audio id="audioPlayer" controls style="display: none;"></audio>
     </div>
     
-    <div id="footerSong"></div>
+    <div id="footerSong">
+        <div class="wrapper mx-0">
+            <div class="row py-3">
+                <div class="col-4">
+                    <audio id="audioPlayer" src="link_al_tuo_file.mp3"></audio>
+                    <a class="song-img" href="#">
+                        <p>
+                            <img src="assets/imgs/search/image-27.jpg" width="40" height="40" alt="">
+                            <a class="foot-link" href="#"><span class="brano"><span class="songname">Song name</span><span class="subtext">Artist name</span></span><i class="bi bi-heart"></i></a>
+                        </p>
+                    </a>
+                </div>
+                <div id="player" class="col-4">
+                    <div id="player-icons">
+                        <button id="shuffle-button"><i class="bi bi-shuffle"></i></button>
+                        <button id="previous-button"><i class="bi bi-skip-start-fill"></i></button>
+                        <button id="play-button"><i class="bi bi-play-fill"></i></button>
+                        <button id="pause-button"><i class="bi bi-pause-fill"></i></button>
+                        <button id="next-button"><i class="bi bi-skip-end-fill"></i></button>
+                        <button id="repeat-button"><i class="bi bi-repeat"></i></button>
+                    </div>
+                    <div id="progress-bar">
+                        <input type="range" id="song-progress" min="0" max="100" value="50">
+                    </div>
+                </div>
+                <div class="col-4 py-3 d-flex justify-content-end align-items-center" id="footer-right-icons">
+                    <button><i class="bi bi-mic" style="font-size: 0.9rem;"></i></button>
+                    <button><i class="bi bi-list" style="font-size: 0.9rem;"></i></button>
+                    <button><i class="bi bi-phone-flip" style="font-size: 0.9rem;"></i></button>
+                    <button><i class="bi bi-volume-down" style="font-size: 1rem;"></i></button>
+                    <input id="volume-bar" type="range" min="0" max="100" value="50">
+                    <button><i class="bi bi-arrows-fullscreen" style="font-size: 0.9rem;"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <script src="assets/scripts/script.js"></script>
     <script src="js/spotify.js"></script>

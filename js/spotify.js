@@ -388,9 +388,16 @@ function retrieveDataFromLocalStorage(keyPrefix) {
 
 function playTrackPreview(previewLink) {
     const audioPlayer = document.getElementById('audioPlayer');
+    const playButton = document.getElementById('play-button');
+    const pauseButton = document.getElementById('pause-button');
     if (previewLink && audioPlayer) {
-        audioPlayer.src = previewLink;
-        audioPlayer.play();
+        playButton.addEventListener('click', function() {
+            audioPlayer.play();
+        });
+    
+        pauseButton.addEventListener('click', function() {
+            audioPlayer.pause();
+        });
     } else {
         console.log('Nessun link di anteprima disponibile per questa traccia o elemento audio non trovato.');
     }
