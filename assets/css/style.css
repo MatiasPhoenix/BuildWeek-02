@@ -16,7 +16,7 @@ h2 {
 
 }
 #arrowRight, #arrowLeft {
-    background-color: var(--colorPlaySong);
+    background-color: rgb(19, 18, 18);
 
 }
 #imgSong{
@@ -52,7 +52,8 @@ body{
     border-radius: 50%;
 }
 #centralPage{
-    background-color: var(--colorBGHome);
+  background: rgb(15,15,15);
+  background: linear-gradient(360deg, rgba(15,15,15,0.756827731092437) 19%, rgba(32,32,32,1) 90%);
     background: linear-gradient(180deg, rgba(white, .15), rgba(white, 0));
     padding: 45px;
     overflow-y: scroll;
@@ -103,7 +104,7 @@ body{
 }
 #playSong, #salvaSong {
     border-radius: 20px 20px 20px 20px;
-    padding: 10px 25px;
+    padding: 12px 25px;
 
 }
 #playSong {
@@ -118,21 +119,29 @@ body{
 }
 #songSection{
   position: relative;
-    background-color: var(--colorPlaySong) ;
+  background: rgb(31,31,31);
+background: linear-gradient(184deg, rgba(31,31,31,1) 10%, rgba(0,0,0,1) 98%, rgba(0,0,0,1) 100%);
     border-radius: 5px 5px 5px 5px;
 
 
 }
 #sezionePlaylistCentrale {
-    margin-top: 20px;
-    margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  gap: 20px;
+  justify-content: space-between;
+  padding-right: 15px;
+  padding-left: 0px;
 }
 .playListCentral{
-    border-radius: 5px 5px 5px 5px;
-    align-items: center;
-    background-color: var(--colorSchede);
-    margin-left: 0px;
-    padding-left: 0px;
+  max-width: 400px;
+  border-radius: 5px 5px 5px 5px;
+  align-items: center;
+  background-color: var(--colorSchede);
+  margin-left: 0px;
+  padding-left: 0px;
 }
 .sezPlayCenter{
     max-width: 40%;
@@ -156,6 +165,9 @@ body{
   #musicRandom{
     padding-left: 0px;
     padding-right: 0px;
+  }
+  .colorCard{
+    color: #9b9b9b;
   }
 
 
@@ -357,7 +369,7 @@ body {
       width: 100%;
       text-align: center;
       color: white;
-      position: fixed; 
+      position: fixed;
       /* Cambiato da absolute a fixed */
       top: 0;
 
@@ -527,7 +539,7 @@ a:hover{
 
 
 /************************************************ Responsive */
-/* 
+/*
 @media screen and (max-width: 1400px) {
   #nascAnnButton {
     font-size: 0.5rem;
@@ -578,12 +590,33 @@ a{
     text-align: center;
   } */
 }
-/* @media screen and (min-width: 2001px) and (max-width: 2119px){
-  #nascAnnButton {
-    font-size: 0.7rem;
-    text-align: center;
+@media screen and (max-width: 2330px){
+  #sezionePlaylistCentrale{
+    justify-content: space-evenly;
   }
-} */
+  .playListCentral{
+    width: 350px;
+  }
+}
+@media screen and (max-width: 2074px){
+  /* #sezionePlaylistCentrale{
+    justify-content: space-evenly;
+  } */
+  .playListCentral{
+    width: 400px;
+  }
+}
+@media screen and (min-width: 1400px) and (max-width: 1610px){
+  .playListCentral{
+    width: 300px;
+  }
+}
+@media screen and (max-width: 1251px){
+  .playListCentral{
+    width: 400px;
+  }
+}
+
 
 @media screen and (min-width: 2120px) and (max-width: 2500px){
   /* #nascAnnButton {
