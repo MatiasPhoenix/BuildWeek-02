@@ -2,6 +2,7 @@
     --colorBGHome: #171717;
     --colorSchede: #2c2c2c;
     --colorPlaySong: #030303;
+    font-family: CircularStd, sans-serif;
 }
 h1, h2, h3, h4, h5, p, #arrowRight, #arrowLeft {
     color: white;
@@ -54,6 +55,9 @@ body{
     background-color: var(--colorBGHome);
     background: linear-gradient(180deg, rgba(white, .15), rgba(white, 0));
     padding: 45px;
+    overflow-y: scroll;
+    height: 100vh;
+    
 }
 #bPageAccont{
 
@@ -297,13 +301,13 @@ body {
 
 .vertical-bar {
     padding-top: 2rem;
-    font-family: CircularStd, sans-serif;
+    /* font-family: CircularStd, sans-serif; */
     height: 100vh; /* Altezza a tutta schermo */
-    background-color: black;
-    width: 100%;
+    /* background-color: black; */
+    /* width: 100%; */
     text-align: center;
     color: white;
-    position: absolute;
+    /* position: absolute; */
     z-index: 3;
 }
 
@@ -336,13 +340,15 @@ body {
     bottom: 0;}
 
     .vertical-bar {
+      
       font-family: CircularStd, sans-serif;
       height: 100vh; 
       background-color: black;
       width: 100%;
       text-align: center;
       color: white;
-      position: fixed; /* Cambiato da absolute a fixed */
+      position: fixed; 
+      /* Cambiato da absolute a fixed */
       top: 0;
       
   }
@@ -408,8 +414,9 @@ body {
   font-weight: 600;
   color: white;
   margin-bottom: 10px;
-  margin-right: 1rem;
-  margin-left: 1rem;}
+  /* margin-right: 1rem; */
+  /* margin-left: 1rem; */
+}
 
 
 
@@ -430,7 +437,7 @@ body {
   font-size: 1.3rem; 
   margin-left: 13rem; 
   color:   #777;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -439,7 +446,7 @@ body {
   align-items: center;
 }
 
-
+/******************************************************** Giorgio css */
 body {
     overflow: hidden;
   }
@@ -472,6 +479,7 @@ background: linear-gradient(156deg, rgba(56,22,169,1) 0%, rgba(140,131,168,1) 69
     color: #149643;
 }
 a{
+  
     text-decoration: none;
     color: #cacaca;
     font-weight: 400;
@@ -486,16 +494,46 @@ a:hover{
 }
 #containerPlaylist{
     line-height: 2rem;
-    height: 420px;
+    height: 100vh;
     padding-bottom: 10px;
     padding-top: 10px;
     overflow-y: scroll;
 }
 #containerPlaylist::-webkit-scrollbar{
+
     background-color:transparent;
     width: 14px;
+
+}
+#centralPage::-webkit-scrollbar{
+
+  background-color:transparent;
+  width: 14px;
 
 }
 ::-webkit-scrollbar-thumb {
     background: #898989;
 }
+@media screen and (min-width: 1400px){
+a{
+  font-size: 1rem;
+}
+.navIcons{
+    font-size: 30px;
+    line-height: 35px;
+  }
+#library{
+    width: 30px;
+    fill: #cacaca;    
+}
+.icons{
+  /* margin-block: 10px; */
+  line-height: 25px;
+  padding: 5px 5px;
+  font-size: 15px;
+}
+#containerTop{
+  height: 300px;
+}
+}
+
