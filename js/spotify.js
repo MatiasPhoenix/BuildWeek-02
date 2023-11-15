@@ -69,7 +69,7 @@ async function searchArtistId(artistName) {
                     console.log('URL immagine dell\'artista:', artistImage);
 
                     // Mostra dettagli artista
-                    displayArtistDetails(artistName, artistImage);
+                    displayArtistDetails(artistName, artistImage, artistId);
 
                     // Aggiungi evento clic per aprire la tracklist
                     const artistElement = document.createElement("div");
@@ -77,6 +77,7 @@ async function searchArtistId(artistName) {
                     artistElement.style.cursor = "pointer";
                     artistElement.addEventListener('click', function () {
                         loadArtistTracklist(artistId);
+                        saveDataAsJSON()
                     });
                     document.getElementById('results').appendChild(artistElement);
 
@@ -97,7 +98,7 @@ async function searchArtistId(artistName) {
 }
 
 
-function displayArtistDetails(name, image) {
+function displayArtistDetails(name, image, artistId) {
     // Mostra dettagli artista nell'interfaccia
     const artistContainer = document.createElement('div');
     artistContainer.classList.add('artist-details');
@@ -121,7 +122,8 @@ function displayArtistDetails(name, image) {
             image: artistImage // Supponendo che artistImage sia disponibile in questo contesto
             // Aggiungi altre proprietà che desideri salvare
         };
-        localStorage.setItem('artist_' + artistId, JSON.stringify(artistData));
+        localStorage.setItem('artist/' + artistId, JSON.stringify({ name: name, image: image }));
+
         alert('Artista aggiunto al localStorage!');
     });
     artistContainer.appendChild(plusIconArtist);
@@ -169,6 +171,16 @@ function displayTracks(tracks) {
             trackElement.classList.add('mb-2', 'pl-3');
             trackElement.textContent = `Track: ${track.title}, Rank: ${track.rank}, Duration: ${secondToMinutes(track.duration)}, Artist: ${track.artist.name}`;
             resultsContainer.appendChild(trackElement);
+            
+            const playIcon = document.createElement('i');
+            playIcon.classList.add('bi', 'bi-play-circle-fill', 'mr-2');
+            playIcon.addEventListener('click', function() {
+                playTrackPreview(track.preview); // Chiamata alla funzione per riprodurre la traccia
+            });
+            trackElement.appendChild(playIcon);
+            
+            
+
             const plusIconTrack = document.createElement('i');
             plusIconTrack.classList.add('bi', 'bi-plus-circle-fill');
             plusIconTrack.addEventListener('click', function() {
@@ -180,7 +192,7 @@ function displayTracks(tracks) {
                     artist: track.artist.name
                     // Aggiungi altre proprietà che desideri salvare
                 };
-                localStorage.setItem('track_' + track.id, JSON.stringify(trackData));
+                localStorage.setItem('track/' + track.id, JSON.stringify(trackData));
                 alert('Traccia aggiunta al localStorage!');
             });
             trackElement.appendChild(plusIconTrack);
@@ -214,7 +226,7 @@ function displayResults(results, albumIds, query) {
     resultsContainer.innerHTML = '';
 
     const albums = results.reduce((acc, track) => {
-        acc[track.album.id] = acc[track.album.id] || { tracks: [], cover: track.album.cover, totalDuration: 0, title: track.album.title };
+        acc[track.album.id] = acc[track.album.id] || { tracks: [], cover: track.album.cover, totalDuration: 0, title: track.album.title, artist: track.artist.name };
         acc[track.album.id].tracks.push(track);
         acc[track.album.id].totalDuration += track.duration;
         return acc;
@@ -258,16 +270,16 @@ function displayResults(results, albumIds, query) {
                 title: album.title,
                 numberOfTracks: album.tracks.length,
                 totalDuration: album.totalDuration,
-                artist: artistName // Supponendo che artistName sia disponibile in questo contesto
+                artist: album.artist // Supponendo che artistName sia disponibile in questo contesto
                 // Aggiungi altre proprietà che desideri salvare
             };
-            localStorage.setItem('album_' + albumId, JSON.stringify(albumData));
+            localStorage.setItem('album/' + albumId, JSON.stringify(albumData));
             alert('Album aggiunto al localStorage!');
         });
         albumContainer.appendChild(plusIconAlbum); 
 
         resultsContainer.appendChild(albumContainer);
-        albumContainer.addEventListener('click', function () {
+        albumImage.addEventListener('click', function () {
             loadTracks(album.tracks[0].album.id);
             searchArtistId(query);
         });
@@ -278,7 +290,7 @@ function displayResults(results, albumIds, query) {
                 totalDurationElement.textContent = `Total Duration: ${totalDuration}`;
                 trackCountElement.textContent = `Number of Tracks: ${number}`;
                 artistElement.textContent = `Artist: ${artist}`;
-
+                
             })
             .catch(error => {
                 console.error(`Errore durante il calcolo della durata totale per l'album ${albumId}:`, error);
@@ -291,6 +303,7 @@ async function calculateTotalDuration(albumIds) {
     let totalDuration = 0;
     let number = 0;
     let artist = ''; // Inizializza la variabile artist
+    let genre = ''; // Inizializza la variabile genre
 
     // Itera su ciascun ID dell'album
     for (const albumId of albumIds) {
@@ -302,13 +315,16 @@ async function calculateTotalDuration(albumIds) {
             // Verifica se le tracce sono presenti e non vuote
             if (data && data.tracks && data.tracks.data) {
                 // Calcola la durata totale delle tracce dell'album
-                const albumTotalDuration = data.tracks.data.reduce((acc, track) => acc + track.duration, 0);
-                totalDuration += albumTotalDuration;
-                const numberOfTracks = data.tracks.data.reduce((acc, track) => acc + 1, 0);
-                number += numberOfTracks;
+                totalDuration = formatDuration(data.duration);
+                number = data.nb_tracks;
+                genre = data.genres.data[0].name;
+                console.log(genre)
+                console.log('Numero di tracce dell\'album:', number);
+                
 
                 // Assegna il nome dell'artista alla variabile artist
                 artist = data.artist.name;
+
             }
         } catch (error) {
             console.error(`Errore durante il recupero delle informazioni per l'album ${albumId}:`, error);
@@ -316,7 +332,7 @@ async function calculateTotalDuration(albumIds) {
     }
 
     // Restituisci la durata totale formattata, il numero di tracce e il nome dell'artista
-    return { totalDuration: formatDuration(totalDuration), number: number, artist: artist };
+    return { totalDuration: totalDuration, number : number , artist: artist };
 }
 
 async function searchTracks(query) {
@@ -334,5 +350,48 @@ async function searchTracks(query) {
         }
     } catch (error) {
         console.error('Errore durante la ricerca delle tracce:', error);
+    }
+}
+
+function saveDataAsJSON() {
+    const localStorageData = { 
+        // Aggiungi qui tutti i dati che vuoi salvare nel file JSON
+        // Ad esempio, se hai salvato dati relativi agli artisti, tracce o album:
+        storedArtists: retrieveDataFromLocalStorage('artist'),
+        storedTracks: retrieveDataFromLocalStorage('track'),
+        storedAlbums: retrieveDataFromLocalStorage('album')
+    };
+
+    const jsonData = JSON.stringify(localStorageData);
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'storedData.json';
+    link.click();
+}
+
+function retrieveDataFromLocalStorage(keyPrefix) {
+    const retrievedData = {};
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith(keyPrefix)) {
+            const data = localStorage.getItem(key);
+            retrievedData[key] = JSON.parse(data);
+        }
+    }
+    return retrievedData;
+}
+
+
+
+function playTrackPreview(previewLink) {
+    const audioPlayer = document.getElementById('audioPlayer');
+    if (previewLink && audioPlayer) {
+        audioPlayer.src = previewLink;
+        audioPlayer.play();
+    } else {
+        console.log('Nessun link di anteprima disponibile per questa traccia o elemento audio non trovato.');
     }
 }
