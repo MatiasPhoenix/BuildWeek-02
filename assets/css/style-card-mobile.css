@@ -1,0 +1,88 @@
+body {
+  background-color: #121212;
+}
+h1 {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
+}
+.header {
+  color: white;
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+.header-icons {
+  display: flex;
+  justify-content: end;
+}
+
+.card {
+  background-image: linear-gradient(
+    to right bottom,
+    #95786d,
+    #242424,
+    #242424,
+    #242424,
+    #242424
+  );
+  display: flex;
+  flex-direction: row;
+  color: white;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  padding: 4% 0 4% 0;
+  border: 0px !important;
+}
+.card-img {
+  width: 100%;
+}
+#card-footer {
+  padding-top: 5px;
+  display: flex;
+  background-color: #242424;
+  border-top: 0px;
+}
+
+.card-footer-icons-start {
+  display: flex;
+  gap: 12%;
+}
+
+.playlist {
+  font-size: 12px;
+  color: #818181;
+
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-Light.otf);
+  font-weight: 300;
+  font-style: normal;
+}
+.song-title {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.card-footer-icons-end {
+  display: flex;
+  justify-content: end;
+  gap: 10%;
+  align-items: center;
+}
+.card-footer-icons-end p {
+  font-size: 10px;
+  color: #818181;
+
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-Light.otf);
+  font-weight: 300;
+  font-style: normal;
+}
+.card-footer-icons-end i {
+  font-size: 20px;
+}
