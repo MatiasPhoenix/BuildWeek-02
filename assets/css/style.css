@@ -668,3 +668,45 @@ a{
 
 
 
+/* Barbara barra destra */
+
+.activity-barr {
+  background-color: black;
+  color: white;
+  font-family: CircularStd, sans-serif;
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+  height: 100vh;
+}
+
+.activity-barr h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.activity-barr i {
+  color: #777777;
+  font-size: 1rem;
+}
+
+
+.activity-barr img {
+  max-width: 100%;
+}
+
+.profile-image {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+}
+
+.time {
+  margin-left: auto;
+  color: #777;
+  font-size: 0.7rem;
+}
+
+.name {
+  font-weight: bold;
+  line-height: 1rem;
+}
