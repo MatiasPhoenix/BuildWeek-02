@@ -726,6 +726,7 @@ a{
 
 #backGroundMobile {
   background-color: var(--colorBGHome);
+  overflow-y: scroll;
 }
 .buonaseraMobile{
   font-size: 1.5rem;
