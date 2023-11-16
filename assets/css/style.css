@@ -721,3 +721,9 @@ a{
   font-weight: bold;
   line-height: 1rem;
 }
+
+/************************************* Inferno mobile **************************************/
+
+#backGroundMobile {
+  background-color: var(--colorBGHome);
+}
