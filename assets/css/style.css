@@ -4,7 +4,7 @@
     --colorPlaySong: #030303;
     font-family: CircularStd, sans-serif;
 }
-h1, h2, h3, h4, h5, p, #arrowRight, #arrowLeft {
+h1, h2, h3, h4, h5, p, .arrowRight, .arrowLeft {
   color: white;
 }
 h1 {
@@ -15,7 +15,7 @@ h2 {
     font-weight: 500;
 
 }
-#arrowRight, #arrowLeft {
+.arrowRight, .arrowLeft {
     background-color: rgb(19, 18, 18);
 
 }
@@ -26,10 +26,10 @@ h2 {
 body{
   box-sizing: border-box;
 }
-#account {
+.account {
   height: 50px;
 }
-.sezioneAccount, .sezioneImgAccount{
+.sezione, .sezioneImgAccount{
     background-color: var(--colorPlaySong);
 
 }
@@ -57,20 +57,22 @@ body{
     height: 100vh;
 
 }
-#bPageAccont{
+.bPageAccont{
+  padding: 0px;
+}
 
+
+.arrowPage{
   padding: 0px;
 }
-#arrowPage{
-  padding: 0px;
-}
-#arrowLeft, #arrowRight {
+
+.arrowLeft, .arrowRight {
   border: #030303;
   width: 30px;
   height: 30px;
   border-radius: 50%;
 }
-#arrowLeft {
+.arrowLeft {
   margin-right: 15px;
 }
 #titoloCanzone{
@@ -717,4 +719,254 @@ a{
 .name {
   font-weight: bold;
   line-height: 1rem;
+}
+
+
+
+
+/* ******************************Album Page******************* */
+#centralPageAlbum{
+  background: rgb(225,195,81);
+  background: linear-gradient(180deg, rgba(225,195,81,1) 6%, rgba(43,39,23,1) 64%, rgba(18,18,18,1) 79%);
+  overflow-y: scroll;
+  height: 100vh;
+}
+#centralPageAlbum::-webkit-scrollbar{
+
+  background-color:transparent;
+  width: 14px;
+  
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #898989ac;
+  }
+
+#imgAlbumGrand{
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.76); 
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.76);
+}
+#titleSongs{
+  font-size: 100px;
+}
+#imgAlbumPar{
+  width: 20px;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+#spanMinuteAlbum{
+  color: #d8d8d8;
+}
+#containerBrani{
+  width: 100%;
+  height: 100%;
+
+  background: rgb(88,76,31);
+  background: linear-gradient(180deg, rgba(88,76,31,1) 6%, rgba(43,39,23,1) 17%, rgba(18,18,18,1) 39%);
+}
+.svgSong svg{
+  width: 50px;
+  height: 50px;
+  margin-right: 40px;
+  fill: #C8C5BA;
+}
+#playSongs{
+  background-color: #1ED760;
+  fill: #030303;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  padding: 15px;
+}
+#svgFastidioso{
+  width: 70px;
+  height: 70px;
+  margin-right: 30px;
+}
+#containerSongsAlbum{
+  font-size: 24px;
+  font-weight: bold;
+}
+#containerSongsAlbum div{
+  color: #8E8B85;
+}
+
+
+/********************************************************* Artist Page ********************************************************/
+
+#bgArtist{
+  background-image: url(../imgs/main/image-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+.hidden-element {
+  visibility: hidden;
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+
+#centralPageAlbum{
+  background: rgb(225,195,81);
+  background: linear-gradient(180deg, rgba(225,195,81,1) 6%, rgba(43,39,23,1) 64%, rgba(18,18,18,1) 79%);
+  overflow-y: scroll;
+  height: 100vh;
+}
+#centralPageAlbum::-webkit-scrollbar{
+
+  background-color:transparent;
+  width: 14px;
+
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #898989ac;
+  }
+
+#imgAlbumGrand{
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.76); 
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.76);
+}
+#titleSongs{
+  font-size: 100px;
+}
+#imgAlbumPar{
+  width: 20px;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+#spanMinuteAlbum{
+  color: #d8d8d8;
+}
+#containerBrani{
+  width: 100%;
+  height: 100%;
+
+  background: rgb(88,76,31);
+  background: linear-gradient(180deg, rgba(88,76,31,1) 6%, rgba(43,39,23,1) 17%, rgba(18,18,18,1) 39%);
+}
+.svgSong svg{
+  width: 50px;
+  height: 50px;
+  margin-right: 40px;
+  fill: #C8C5BA;
+}
+#playSongs{
+  background-color: #1ED760;
+  fill: #030303;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  padding: 15px;
+}
+#svgFastidioso{
+  width: 70px;
+  height: 70px;
+  margin-right: 30px;
+}
+#containerSongsAlbum{
+  font-size: 24px;
+  font-weight: bold;
+}
+#containerSongsAlbum div{
+  color: #8E8B85;
+}
+
+/* Artist Page **/
+
+#bgArtist{
+  background-image: url(../imgs/main/image-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#elencoBrani{
+  font-size: 23px;
+  font-weight: bold;
+}
+#elencoBrani span{
+  color: #898989;
+}
+#elencoBrani img{
+  width: 50px;
+}
+#containerBraniCheTiPiacciono img{
+  width: 80px;
+  border-radius: 100%;
+}
+#containerBraniCheTiPiacciono span{
+  color: #898989;
+}
+
+
+
+
+#contenitoreCerca{
+  height: 100vh;
+  overflow-y: scroll;
+  padding-bottom: 150px;
+}
+#contenitoreCerca::-webkit-scrollbar{
+  background-color:transparent;
+  width: 14px;
+
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #898989;
+  }
+
+.trackElement{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-block: 25px;
+
+}
+
+.divImg{
+  display: flex;
+  align-items: end;
+}
+.imgTrack{
+width: 80px;
+margin-right: 15px;
+}
+.divTitle{
+  display: flex;
+  flex-direction: column;
+
+}
+.aTitle{
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.aArtist{
+  font-size: 25px;
+  font-weight: bold;
+}
+.divDurationPlay{
+  display: flex;
+  align-items: center;
+}
+.aDuration{
+  font-size: 30px;
+  margin-right: 50px;
+}
+.aPlay{
+  color: #1ed760;
+  font-size: 50px;
+  margin-right: 50px;
+}
+.aPlus{
+  font-size: 50px;
+  margin-right: 50px;
+}
+.aPlus:hover{
+  color: #1ed760;
 }

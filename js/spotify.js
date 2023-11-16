@@ -310,6 +310,10 @@ function displayArtistDetails(name, image, artistId, tracklist) {
     artistName.textContent = name;
     artistContainer.appendChild(artistName);
 
+    artistContainer.addEventListener('click', function () {
+        showSectionCenter(sectionArtist);
+    });
+
     const plusIconArtist = document.createElement('i');
     plusIconArtist.classList.add('bi', 'bi-heart');
     plusIconArtist.addEventListener('click', function () {
@@ -368,12 +372,44 @@ function displayTracks(tracks) {
     if (tracks && tracks.length > 0) {
         tracks.forEach(track => {
             const trackElement = document.createElement('div');
-            trackElement.classList.add('mb-2', 'pl-3');
-            trackElement.textContent = `Track: ${track.title}, Rank: ${track.rank}, Duration: ${secondToMinutes(track.duration)}, Artist: ${track.artist.name}`;
-            resultsContainer.appendChild(trackElement);
+            trackElement.classList.add('mb-2', 'pl-3','trackElement');
+
+           let divImg = document.createElement('div');
+           divImg.classList.add('divImg');
+           let divDurationPlay = document.createElement('div');
+           divDurationPlay.classList.add('divDurationPlay');
+           trackElement.appendChild(divImg);
+           trackElement.appendChild(divDurationPlay);
+
+            let cover = document.createElement('img');
+            cover.classList.add('imgTrack');
+            cover.src = track.album.cover;
+            divImg.appendChild(cover);
+
+            let divTitle = document.createElement('div');
+            divTitle.classList.add('divTitle');
+            divImg.appendChild(divTitle);
+
+            let title = document.createElement('a');
+            title.classList.add('aTitle');
+            title.textContent = track.title;
+            divTitle.appendChild(title);
+
+            let artist = document.createElement('a');
+            artist.classList.add('aArtist');
+            artist.textContent = track.artist.name;
+            divTitle.appendChild(artist);
+            
+            let duration = document.createElement('a');
+            duration.classList.add('aDuration');
+            duration.textContent = secondToMinutes(track.duration);
+            divDurationPlay.appendChild(duration);
+           
+            
+            // resultsContainer.appendChild(trackElement);
 
             const plusIconTrack = document.createElement('i');
-            plusIconTrack.classList.add('bi', 'bi-heart');
+            plusIconTrack.classList.add('bi', 'bi-heart', 'aPlus');
             plusIconTrack.addEventListener('click', function () {
                 // Salva i dati associati alla traccia nel localStorage
                 const trackData = {
@@ -386,25 +422,30 @@ function displayTracks(tracks) {
                     artistId: track.artist.id,
                     tracksArtist: track.artist.tracklist,
                     albumId: track.album.id// Supponendo che preview sia disponibile in questo contest
-                    // Aggiungi altre proprietà che desideri salvare
+                    // Aggiungi altre proprietÃ  che desideri salvare
                 };
                 localStorage.setItem('track/' + track.id, JSON.stringify(trackData));
                 alert('Traccia aggiunta al localStorage!');
 
             });
-            trackElement.appendChild(plusIconTrack);
+            
+            // trackElement.appendChild(plusIconTrack);
             console.log(track.preview);
             const playIcon = document.createElement('i');
-            playIcon.classList.add('bi', 'bi-play-circle-fill', 'mr-2');
+            divDurationPlay.appendChild(playIcon);
+            divDurationPlay.appendChild(plusIconTrack);
+            playIcon.classList.add('bi', 'bi-play-circle-fill','aPlay');
             playIcon.addEventListener('click', function () {
                 const url = track.preview; // Utilizza 'const' o 'let' invece di 'url =' per dichiarare la variabile
                 console.log(url);
                 playSpecificSong(url);
                 console.log(playSpecificSong(url));
             });
-            
-            trackElement.appendChild(playIcon);
 
+            // trackElement.appendChild(playIcon);
+            
+
+            resultsContainer.appendChild(trackElement);
         });
     } else {
         const noTracksMessage = document.createElement('div');
@@ -488,6 +529,14 @@ function displayResults(results, albumIds, query) {
             localStorage.setItem('album/' + albumId, JSON.stringify(albumData));
             alert('Album aggiunto al localStorage!');
         });
+
+        albumContainer.addEventListener('click', function () {
+
+            window.location.href = 'album-page.html?id=' + album.id;
+
+        });
+
+
         albumContainer.appendChild(plusIconAlbum);
 
         resultsContainer.appendChild(albumContainer);
@@ -600,6 +649,10 @@ let imgSong = document.getElementById('imgSong');
 let titoloCanzone = document.getElementById('titoloCanzone');
 let playSong= document.getElementById('playSong');
 let artistaNome = document.getElementById('artistaNome');
+let dataSong = document.getElementById('dataSong');
+dataSong.addEventListener('click', function () {
+    showSectionCenter(sectionAlbum);
+});
 
 
 if (randomAlbum) {
@@ -642,7 +695,12 @@ albums.forEach(album => {
     
     cardAlbum.appendChild(cardBody);
     
-    containerAlbum.appendChild(cardAlbum); // Aggiungiamo la copia del blocco HTML al container
+    containerAlbum.appendChild(cardAlbum);
+    
+    cardAlbum.addEventListener('click', function () {
+        showSectionCenter(sectionAlbum);
+    });
+    // Aggiungiamo la copia del blocco HTML al container
 });
 
 
@@ -687,7 +745,9 @@ artist.forEach(artist => {
     cardBody.appendChild(cardText);
     
     cardAlbum.appendChild(cardBody);
-    
+    cardAlbum.addEventListener('click', function () {
+        showSectionCenter(sectionArtist);
+    });
     containerArtist.appendChild(cardAlbum); // Aggiungiamo la copia del blocco HTML al container
 });
 
@@ -733,36 +793,64 @@ document.addEventListener('DOMContentLoaded', function () {
 
     
     
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchIcon = document.getElementById('searchIcon');
-        const plusPlaylist = document.getElementById('plus');
-        const searchCentral = document.querySelector('.search-central');
-        const playlistCentral = document.querySelector('.playlist-central');
-        const centralPage = document.getElementById('centralPage');
-        
-        function showSection(sectionToShow) {
-            const sections = [centralPage, searchCentral, playlistCentral];
+
+    const searchIcon = document.getElementById('searchIcon');
+    const plusPlaylist = document.getElementById('plus');
+    const homeButton = document.getElementById('homeButton'); // Aggiungi il riferimento al pulsante Home
+    const searchCentral = document.querySelector('.search-central');
+    const playlistCentral = document.querySelector('.playlist-central');
+    const centralPage = document.getElementById('centralPage');
+
+    function showSection(sectionToShow) {
+        const sections = [centralPage, searchCentral, playlistCentral];
 
         sections.forEach(section => {
             if (section === sectionToShow) {
-                section.classList.remove('d-none');
+                section.classList.remove('d-lg-none');
+                section.classList.add('d-lg-block');
             } else {
-                section.classList.add('d-none');
+                section.classList.add('d-lg-none');
+                section.classList.remove('d-lg-block');
             }
         });
     }
-    
+
     searchIcon.addEventListener('click', function () {
         showSection(searchCentral);
     });
-    
+
     plusPlaylist.addEventListener('click', function () {
         showSection(playlistCentral);
     });
-});
+
+    homeButton.addEventListener('click', function () {
+        showSection(centralPage);
+        showSectionCenter(sectionHome);
+    });
 
 
+
+
+
+    const sectionHome = document.getElementById('sectionHome');
+    const sectionArtist = document.getElementById('sectionArtist');
+    const sectionAlbum = document.getElementById('sectionAlbum');
+  
+    function showSectionCenter(sectionToShow) {
+        showSection(centralPage);
+        const sections = [sectionAlbum, sectionArtist, sectionHome];
+
+        sections.forEach(section => {
+            if (section === sectionToShow) {
+
+                section.classList.remove('hidden-element');
+            } else {
+                section.classList.add('hidden-element');
+            }
+        });
+    }
+
+    
 
 
 
@@ -784,3 +872,119 @@ async function searchTracks(query) {
         console.error('Errore durante la ricerca delle tracce:', error);
     }
 }
+
+
+
+
+
+
+
+
+let cardHomePlaylist = document.querySelectorAll('.cardHomePlaylist');
+cardHomePlaylist.forEach(card => {
+card.addEventListener('click', function () {
+    showSectionCenter(sectionAlbum);
+})});
+
+let playListCentral = document.querySelectorAll('.playListCentral');
+playListCentral.forEach(card => {
+card.addEventListener('click', function () {
+    showSectionCenter(sectionAlbum);
+})});
+
+
+let arrowLeft = document.querySelectorAll('.arrowLeft');
+arrowLeft.forEach(arrow => {
+arrow.addEventListener('click', function () {
+    showSectionCenter(sectionHome);
+});});
+
+
+
+
+
+
+
+
+
+
+/*************************************************************** ALBUM **************************************************/
+
+/*
+function fillPageWithAlbumData(albumDetails, songsList) {
+    // Funzione per popolare dinamicamente i dettagli dell'album
+    function populateAlbumDetails() {
+      const albumCover = document.getElementById("imgAlbumGrand");
+      const albumTitle = document.getElementById("titleSongs");
+      const albumDuration = document.getElementById("spanMinuteAlbum");
+      // Popolare gli elementi HTML con i dati dell'album
+      albumCover.src = albumDetails.coverImage;
+      albumTitle.textContent = `${albumDetails.title} - ${albumDetails.artist} (${albumDetails.year})`;
+      albumDuration.textContent = albumDetails.duration;
+    }
+  
+    // Funzione per popolare dinamicamente la lista delle canzoni
+    function populateSongsList() {
+      const containerSongs = document.getElementById("containerSongsAlbum");
+      // Ciclo attraverso i dati delle canzoni e aggiungi elementi HTML
+      songsList.forEach((song) => {
+        const songElement = document.createElement("div");
+        songElement.classList.add("row", "justify-content-around", "mt-4");
+        songElement.innerHTML = `
+          <div class="col-6 d-flex align-items-center">
+              <div>${song.trackNumber}</div>
+              <div class="d-flex flex-column grid gap-2 ms-3">
+                  <p>${song.title}</p>
+                  <span>${song.artist}</span>
+              </div>
+          </div>
+          <div class="col-2 d-flex justify-content-end">${song.trackNumber}</div>
+          <div class="col-2 d-flex justify-content-end">${song.duration}</div>
+        `;
+        containerSongs.appendChild(songElement);
+      });
+    }
+  
+    // Chiamare le funzioni per popolare la pagina quando il documento è pronto
+    document.addEventListener("DOMContentLoaded", () => {
+      populateAlbumDetails();
+      populateSongsList();
+      // Eventuali altre operazioni che desideri eseguire quando la pagina è caricata
+    });
+  }
+  
+  // Esempio di dati JSON simulati per l'album e le canzoni
+  const albumData = {
+    title: "Gioventù Brucata",
+    artist: "Pinguini Tattici Nucleari",
+    year: 2017,
+    duration: "53 min 20 sec",
+    coverImage: "assets/imgs/main/image-15.jpg",
+    // Altri dettagli dell'album...
+  };
+  
+  const songsData = [
+    { trackNumber: 1, title: "Montanelli - Intro", artist: "Pinguini Tattici Nucleari", duration: "3:45" },
+    // Altre canzoni...
+  ];
+  
+  // Chiamata alla funzione per popolare la pagina con i dati dell'album e delle canzoni
+  fillPageWithAlbumData(albumData, songsData);
+  
+
+
+  */
+
+
+
+
+  let imgAlbumGrande = document.getElementById("imgAlbumGrand");
+  let titleSongs = document.getElementById("titleSongs");
+  let imgAlbumPar = document.getElementById("imgAlbumPar");
+  let spanMinuteAlbum = document.getElementById("spanMinuteAlbum");
+  let contatoreAlbumTrack = document.querySelector(".contatoreAlbumTrack");
+  let nameTrack = document.querySelector(".nameTrack");
+  let nameArtist = document.querySelectorAll(".nameArtist");
+  let dataAlbum = document.querySelector(".dataAlbum");
+  let numeroCanzoni = document.querySelector(".numeroCanzoni");
+
