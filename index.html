@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
+    <title>spotify-clone</title>
 </head>
 <body>
+
+<!-- Barra laterale sinistra -->
     <div id="" class="row bg-black">
         <div id="containerSinistra" class="d-none d-lg-block col-lg-3">
             <div class="p-4 pe-0">
                 <div id="containerTop">
                     <div class="d-flex align-items-start flex-column mb-3">
+                        <!-- Sezione (sinistra) "Home" - "Cerca" - "La mia Libreria" -->
                         <a href="#" class="mb-1"><i class="bi bi-three-dots navIcons"></i></a>
                         <div class="mb-2"><a href="#"><i class="bi bi-house-door-fill navIcons"></i><span class="ms-2">Home</span></a></div>
                         <div class="mb-2"><a href="#"><i class="bi bi-search navIcons"></i><span class="ms-2">Cerca</span></a></div>
@@ -24,12 +27,14 @@
                             <span class="ms-2 align-middle">La tua libreria</span></a>
                         </div>
                     </div>
+                    <!-- Sezione (sinistra) "Crea Playlist" - "Brani che ti piacciono" - "I tuoi episodi" -->
                     <div class="">
                         <div class="mb-3"><a href="#"><i id="plus" class="bi bi-plus icons bg-light rounded-1 text-dark"></i><span class="ms-2">Crea playlist</span></a></div>
                         <div class="mb-3"><a href="#"><i id="heart" class="bi bi-suit-heart-fill icons rounded-1 text-light"></i><span class="ms-2">Brani che ti piacciono</span></a></div>
                         <div class="mb-3"><a href="#"><i id="bookmark" class="bi bi-bookmark-fill icons rounded-1"></i><span class="ms-2">I tuoi episodi</span></a></div>
                     </div>
                 </div>
+                <!-- Sezione PLAYLIST -->
                 <div id="separatore"></div>
                 <div id="containerPlaylist">
                   <p><a href="#">early stage emily syndrome (set-ott 2022)</a></p>
@@ -227,7 +232,8 @@
                 </div>
             </div>
         </div>
-        
+
+<!-- Pagina centrale  -->
         <div id="centralPage" class="row d-none d-lg-block col-lg-9 col-xxl-7  py-3 d-flex align-items-center justify-content-center"> 
             
             <div id="bPageAccont" class="row d-flex justify-content-between align-items-center"> 
@@ -257,7 +263,7 @@
             
             <h2>Buonasera</h2>
             <!-- container centrale playlist -->
-            <div id="sezionePlaylistCentrale" class=""> <!-- container centrale playlist -->
+            <div id="sezionePlaylistCentrale" class="d-flex justify-content-evenly"> <!-- container centrale playlist -->
                 
                     <div class="playListCentral playList d-flex"><img class="imgPLaylist " src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="">early stage emily syndrome (sett-ott-2022)</p></div>
                     <div class="playListCentral playList d-flex"><img class="imgPLaylist " src="assets/imgs/main/image-7.jpg" alt="imgPlaylist"><p class="">early stage emily syndrome (sett-ott-2022)</p></div>
@@ -425,7 +431,7 @@
 
         </div>
 
-        <!-- Barra laterale destra (attività amici) -->
+<!-- Barra laterale destra (attività amici) -->
         <div class="activity-barr col-2 ps-4 mx-0">
             <div class="row align-items-start py-4 px-0 mx-0">
                 <div class="col-8">
