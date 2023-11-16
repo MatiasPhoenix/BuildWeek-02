@@ -578,8 +578,9 @@ a{
 }
 @media screen and (min-width: 1404) and (mas-width: 1464px){
 #musicRandom{
-  padding-left: 25px !important;
+  /* padding-left: 25px !important;
   padding-right: 25px !important;
+ */
 }
 }
 
