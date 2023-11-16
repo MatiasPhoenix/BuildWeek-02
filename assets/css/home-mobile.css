@@ -40,10 +40,11 @@ span{
 
 }
 #mix{
-    width: 180px;
+    width: 130px;
+    
 }
 .text{
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 .play {
@@ -56,4 +57,17 @@ span{
     color: white;
 }
 
+#quadro {
+    background-color: #3a3636;
+    border-radius: 10px; 
+    padding: 10px;
+    margin-left: 10px; 
+    margin-right: 10px;
+  }
+  #quadro1 {
+    background-color: #3a3636;
+    border-radius: 10px; 
+    padding: 10px; 
+  margin: 10px;
+}
 
