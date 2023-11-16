@@ -2,6 +2,7 @@
     --colorBGHome: #171717;
     --colorSchede: #2c2c2c;
     --colorPlaySong: #030303;
+    --colorCardSongs: #1d1d1d;
     font-family: CircularStd, sans-serif;
 }
 h1, h2, h3, h4, h5, p, #arrowRight, #arrowLeft {
@@ -133,23 +134,25 @@ background: linear-gradient(184deg, rgba(31,31,31,1) 10%, rgba(0,0,0,1) 98%, rgb
   padding-left: 0px;
 }
 .playListCentral{
-  /* max-width: 400px; */
-  max-height: 110px;
+  max-width: 438px;
+  max-height: 100px;
   border-radius: 5px 5px 5px 5px;
   align-items: center;
   background-color: var(--colorSchede);
   margin-left: 0px;
   padding-left: 0px;
+  
 }
 .imgPLaylist{
   max-width: 40%;
-  max-height: 110px;
+  max-height: 100px;
+  border-radius: 5px 0px 0px 5px;
 }
 .sezPlayCenter{
     max-width: 40%;
 }
 .cardAlbum{
-    background-color: rgb(43, 42, 42);
+    background-color: var(--colorCardSongs);
     color: white;
     max-width: 250px;
   }
@@ -157,9 +160,9 @@ background: linear-gradient(184deg, rgba(31,31,31,1) 10%, rgba(0,0,0,1) 98%, rgb
       padding: 20px;
   }
   */
-  #altroSection{
-    margin: 20px auto;
-  }
+  /* #altroSection{
+    margin-top: 45px;
+  } */
   .card-title{
       font-weight: 800;
 
