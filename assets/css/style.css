@@ -738,3 +738,20 @@ padding-right: 25px !important;
   background-repeat: no-repeat;
   background-size: cover;
 }
+#elencoBrani{
+  font-size: 23px;
+  font-weight: bold;
+}
+#elencoBrani span{
+  color: #898989;
+}
+#elencoBrani img{
+  width: 50px;
+}
+#containerBraniCheTiPiacciono img{
+  width: 80px;
+  border-radius: 100%;
+}
+#containerBraniCheTiPiacciono span{
+  color: #898989;
+}
