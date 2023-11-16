@@ -1,50 +1,140 @@
 {
-     "artisti": [
-       {
-         "id": "412",
-         "nome": "Nome dell'artista 1",
-         "genere": "Genere musicale 1",
-         "immagine": "URL immagine 1",
-         "topCanzoni": "Link top canzoni 1"
-       },
-       {
-         "id": "713",
-         "nome": "Nome dell'artista 2",
-         "genere": "Genere musicale 2",
-         "immagine": "URL immagine 2",
-         "topCanzoni": "Link top canzoni 2"
-       },
-       {
-         "id": "910",
-         "nome": "Nome dell'artista 3",
-         "genere": "Genere musicale 3",
-         "immagine": "URL immagine 3",
-         "topCanzoni": "Link top canzoni 3"
-       }
-     ],
-     "album": [
-       {
-         "id": "75621062",
-         "titolo": "Titolo dell'album 1",
-         "artistaId": "412",
-         "immagine": "URL immagine album 1",
-         "tracklist": "Link tracklist album 1"
-       },
-       {
-         "id": "89563210",
-         "titolo": "Titolo dell'album 2",
-         "artistaId": "713",
-         "immagine": "URL immagine album 2",
-         "tracklist": "Link tracklist album 2"
-       },
-       {
-         "id": "15987463",
-         "titolo": "Titolo dell'album 3",
-         "artistaId": "910",
-         "immagine": "URL immagine album 3",
-         "tracklist": "Link tracklist album 3"
-       }
-       
-     ]
+  "storedArtists": {
+    "artist/75491": {
+         "name": "Lady Gaga",
+         "image": "https://e-cdns-images.dzcdn.net/images/artist/83110025016968b8882a1c92a3284a6b/250x250-000000-80-0-0.jpg"
+    },
+    "artist/9315": {
+         "name": "Skillet",
+         "image": "https://e-cdns-images.dzcdn.net/images/artist/35f0f153c40de1aaf3c08fbbb1ad3805/250x250-000000-80-0-0.jpg"
+    },
+    "artist/13611425": {
+         "name": "LUM!X",
+         "image": "https://e-cdns-images.dzcdn.net/images/artist/3120b39a15139cf327e3c7d8e75554e7/250x250-000000-80-0-0.jpg"
+    }
+},
+"storedTracks": {
+    "track/1148426902": {
+         "title": "Monster",
+         "rank": 754251,
+         "duration": 178,
+         "artist": "Shawn Mendes",
+         "preview": "https://cdns-preview-e.dzcdn.net/stream/c-e31a6496f41c6923a8088fca566f2c2e-4.mp3",
+         "cover": "https://api.deezer.com/album/187735922/image",
+         "artistId": 5962948,
+         "tracksArtist": "https://striveschool-api.herokuapp.com/api/deezer/artist/5962948/top?limit=50",
+         "albumId": 187735922
+    },
+    "track/109701586": {
+         "title": "Monster",
+         "rank": 723911,
+         "duration": 249,
+         "artist": "Imagine Dragons",
+         "preview": "https://cdns-preview-6.dzcdn.net/stream/c-6e86ac5f7c82aed514801d7ae25fc058-7.mp3",
+         "cover": "https://api.deezer.com/album/11428620/image",
+         "artistId": 416239,
+         "tracksArtist": "https://striveschool-api.herokuapp.com/api/deezer/artist/416239/top?limit=50",
+         "albumId": 11428620
+    },
+    "track/781420722": {
+         "title": "Monsters",
+         "rank": 615029,
+         "duration": 259,
+         "artist": "James Blunt",
+         "preview": "https://cdns-preview-9.dzcdn.net/stream/c-90bfccc6848586982bb6fd3314c5653e-5.mp3",
+         "cover": "https://api.deezer.com/album/115847122/image",
+         "artistId": 287,
+         "tracksArtist": "https://striveschool-api.herokuapp.com/api/deezer/artist/287/top?limit=50",
+         "albumId": 115847122
+    },
+    "track/72160317": {
+         "title": "The Monster",
+         "rank": 899826,
+         "duration": 250,
+         "artist": "Eminem",
+         "preview": "https://cdns-preview-1.dzcdn.net/stream/c-19bb8452c0c5709dde021b7f92c98ab7-6.mp3",
+         "cover": "https://api.deezer.com/album/7090505/image",
+         "artistId": 13,
+         "tracksArtist": "https://striveschool-api.herokuapp.com/api/deezer/artist/13/top?limit=50",
+         "albumId": 7090505
+    },
+    "track/1009351772": {
+         "title": "Monster",
+         "rank": 532135,
+         "duration": 178,
+         "artist": "Red Velvet - IRENE & SEULGI",
+         "preview": "https://cdns-preview-7.dzcdn.net/stream/c-7a4c99cb866c30fe0073e16cf1bbb4e6-4.mp3",
+         "cover": "https://api.deezer.com/album/158318422/image",
+         "artistId": 99548022,
+         "tracksArtist": "https://striveschool-api.herokuapp.com/api/deezer/artist/99548022/top?limit=50",
+         "albumId": 158318422
+    },
+    "track/7667062": {
+         "title": "Monster",
+         "rank": 595593,
+         "duration": 378,
+         "artist": "Kanye West",
+         "preview": "https://cdns-preview-2.dzcdn.net/stream/c-263bcf7834aeeab9495f9ef82a1eaeb2-5.mp3",
+         "cover": "https://api.deezer.com/album/707965/image",
+         "artistId": 230,
+         "tracksArtist": "https://striveschool-api.herokuapp.com/api/deezer/artist/230/top?limit=50",
+         "albumId": 707965
+    },
+    "track/607698082": {
+         "title": "monster",
+         "rank": 502926,
+         "duration": 233,
+         "artist": "21 Savage",
+         "preview": "https://cdns-preview-6.dzcdn.net/stream/c-6994050e340191654145e4effb39449a-5.mp3",
+         "cover": "https://api.deezer.com/album/82411002/image",
+         "artistId": 6853403,
+         "tracksArtist": "https://striveschool-api.herokuapp.com/api/deezer/artist/6853403/top?limit=50",
+         "albumId": 82411002
+    },
+    "track/2505512261": {
+         "title": "Monster",
+         "rank": 542847,
+         "duration": 159,
+         "artist": "SEVENTEEN",
+         "preview": "https://cdns-preview-3.dzcdn.net/stream/c-335f8e0108b6f7278ecf7ce2d7a8d234-2.mp3",
+         "cover": "https://api.deezer.com/album/502186581/image",
+         "artistId": 240582,
+         "tracksArtist": "https://striveschool-api.herokuapp.com/api/deezer/artist/240582/top?limit=50",
+         "albumId": 502186581
+    },
+    "track/6614707": {
+         "title": "Monster",
+         "rank": 529365,
+         "duration": 161,
+         "artist": "Meg & Dia",
+         "preview": "https://cdns-preview-2.dzcdn.net/stream/c-233a70ee773a400647b5a2a25e2eef7e-5.mp3",
+         "cover": "https://api.deezer.com/album/611562/image",
+         "artistId": 16506,
+         "tracksArtist": "https://striveschool-api.herokuapp.com/api/deezer/artist/16506/top?limit=50",
+         "albumId": 611562
+    }
+},
+"storedAlbums": {
+    "album/707965": {
+         "title": "My Beautiful Dark Twisted Fantasy",
+         "totalDuration": 378,
+         "artist": "Kanye West",
+         "cover": "https://api.deezer.com/album/707965/image",
+         "id": 707965
+    },
+    "album/383513": {
+         "title": "Awake",
+         "totalDuration": 178,
+         "artist": "Skillet",
+         "cover": "https://api.deezer.com/album/383513/image",
+         "id": 383513
+    },
+    "album/611562": {
+         "title": "Something Real & Here, Here and Here",
+         "totalDuration": 161,
+         "artist": "Meg & Dia",
+         "cover": "https://api.deezer.com/album/611562/image",
+         "id": 611562
+    }
 }
-   
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Cards Example</title>
+    <!-- Collegamento a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Collegamento a Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* Stili aggiuntivi per la visualizzazione */
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Album Cards Example</h1>
+    <div id="cont-album" class="row">
+        <!-- Qui verranno aggiunte le cards degli album -->
+    </div>
+</div>
+
+<!-- Collegamento a Bootstrap JS e jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Il tuo JavaScript personalizzato verrà aggiunto qui -->
+<script>
+ class AlbumCard {
+  constructor(nome, artist, imgUrl, year) {
+    this.artist = artist;
+    this.nome = nome;
+    this.imgUrl = imgUrl;
+    this.year = year;
+
+    this.divAlbums = document.getElementById("cont-album");
+    this.card = this.createCard();
+    this.divAlbums.appendChild(this.card);
+
+    this.card.addEventListener('click', () => {
+      this.handleCardClick();
+    });
+  }
+  createElement(tag, classNames, textContent) {
+    const element = document.createElement(tag);
+    if (Array.isArray(classNames)) {
+        classNames.forEach(className => {
+            element.classList.add(className);
+        });
+    } else {
+        element.classList.add(classNames);
+    }
+    element.textContent = textContent;
+    return element;
+}
+
+createLink(tag, classNames, textContent) {
+    const link = this.createElement(tag, classNames, textContent);
+    link.href = '#';
+    return link;
+}
+
+  createCard() {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const img = this.createElement('img', 'card-img-top', '');
+    img.src = this.imgUrl;
+    img.alt = `${this.nome} cover`;
+    card.appendChild(img);
+
+    card.appendChild(this.createElement('h4', 'title-card', this.nome));
+
+
+    const cardLinks = this.createElement('div', 'card-body', '');
+    const link1 = this.createLink('a', 'card-link', '');
+    const link2 = this.createLink('a', 'card-link', '');
+    link1.textContent = `${this.year}`;
+    link2.textContent = `${this.artist}`;
+
+    cardLinks.appendChild(link1);
+    cardLinks.appendChild(link2);
+    card.appendChild(cardLinks);
+
+    return card;
+  }
+
+  handleCardClick() {
+    console.log(this.artist);
+    // Esegui qui le azioni desiderate al clic sulla card
+  }
+}
+
+// Esempio di utilizzo:
+const albumData = {
+  nome: "Nome Album",
+  artist: "Nome Artista",
+  imgUrl: "url_immagine_album",
+  year: 2023 // Anno di pubblicazione dell'album
+};
+
+const albumCard = new AlbumCard(albumData.nome, albumData.artist,  "assets/imgs/main/image-1.jpg", albumData.year);
+
+</script>
+
+</body>
+</html>

@@ -93,3 +93,14 @@ let minutes = Math.floor(totalSeconds / 60); // Trova il numero di minuti interi
 let seconds = totalSeconds % 60; // Trova il numero di secondi rimanenti
 
 console.log(`${totalSeconds} secondi sono ${minutes} minuti e ${seconds} secondi.`);
+
+
+
+
+
+
+
+
+
+
+
