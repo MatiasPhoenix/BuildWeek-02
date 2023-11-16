@@ -62,7 +62,7 @@ span{
     border-radius: 10px; 
     padding: 10px;
     margin-left: 10px; 
-    margin-right: 10px;
+    margin-right: 0px;
   }
   #quadro1 {
     background-color: #3a3636;
@@ -71,3 +71,21 @@ span{
   margin: 10px;
 }
 
+
+.style{
+    font-size: 1.7rem;
+    text-align: center;
+    color: white;
+}
+.pippoPlay{
+    border-radius: 50%;
+    background-color: #262323;
+    border: none;
+    margin-left: 20px;
+}
+.cuorePlaylist{
+    color: rgb(15, 228, 15);
+    font-size: 1.5rem;
+    padding-right: 20px;
+
+}

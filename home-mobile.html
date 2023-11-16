@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
- <link rel="stylesheet" href="assets/css/home-mobile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/home-mobile.css">
 </head>
-  <body>
+  <body class="container">
     <div>
         <section class="nav">
             <div class="container">
@@ -108,26 +109,24 @@
             </div>
             </section>
    
-        <section>
-            <div class="container" id="quadro">
+        <section class="pe-2">
+            <div class="container " id="quadro">
                 <div class="row">
                   <div class="col" id="playlist">
                     <img id="mix" src="collage/download.jpg" alt="" >
                   </div>
-                  <div class="col-6">
+                  <div class="col-7 ps-0">
                     <div>Playlist</div>
                     <div class="text">Study and work</div>
                   </div>
             </div>
-            <div class="play" id="quadro">
+            <div class="play pb-0 ps-0 ms-0" id="quadro">
                 <div class="container">
                     <div class="row">
                         <!-- Icona cuore -->
-                        <div class="col d-flex ">
+                        <div class="col d-flex ps-0 ">
                             <div class="d-flex align-items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                                    <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
-                                </svg>
+                                <i class="bi bi-heart-fill cuorePlaylist"></i>
                             </div>
                         
                         
@@ -142,17 +141,16 @@
                         
                         <!-- Numero di brani con icona di riproduzione -->
                         <div class="col ml-auto">
-                            <div class="d-flex align-items-center">
-                                16 brani
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                                    </svg>
-                                </span>
+                            <div class="d-flex justify-content-end align-items-center">
+                                16 brani 
+                                <button class="pippoPlay">
+                                    <i class="bi bi-play-fill style"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
         <section>
