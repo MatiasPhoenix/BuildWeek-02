@@ -729,3 +729,12 @@ padding-right: 25px !important;
 #containerSongsAlbum div{
   color: #8E8B85;
 }
+
+/********************************************************* Artist Page ********************************************************/
+
+#bgArtist{
+  background-image: url(../imgs/main/image-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
