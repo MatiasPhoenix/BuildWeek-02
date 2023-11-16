@@ -727,3 +727,21 @@ a{
 #backGroundMobile {
   background-color: var(--colorBGHome);
 }
+#testoLocoMobile{
+  font-size: 0.8rem;
+  color: grey;
+  font-weight: 600;
+}
+.classCuoreCardMobile{
+  font-size: 1.4rem;
+}
+.classPlayMobile{
+  font-size: 1.4rem;
+
+}
+.classPlayMobileButton {
+  border-radius: 50%;
+  padding-left: 5px;
+  border: none;
+  background-color: black;
+}
