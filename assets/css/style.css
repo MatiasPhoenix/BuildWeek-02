@@ -314,77 +314,6 @@ a {
 
 **********************************************
 **********************************************
-  /*vertical bar*/
-
-
-.vertical-bar {
-  padding-top: 2rem;
-  font-family: CircularStd, sans-serif;
-  height: 100vh; /* Altezza a tutta schermo */
-  background-color: black;
-  width: 100%;
-  text-align: center;
-  color: white;
-  position: absolute;
-  z-index: 3;
-}
-
-/* intestazione */
-.vertical-bar h3 {
-  font-size: 2rem;
-  color: white;
-}
-
-/*messaggi */
-.message {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-  font-size: 0.7rem;
-}
-
-
-
-.wrapper {
-  position: fixed;
-  background-color: #212529;
-  bottom: 0;
-}
-
-.vertical-bar {
-  font-family: CircularStd, sans-serif;
-  height: 100vh;
-  background-color: black;
-  width: 100%;
-  text-align: center;
-  color: white;
-  position: fixed; /* Cambiato da absolute a fixed */
-  top: 0;
-}
-
-#activity-list {
-  list-style-type: none; /* Rimuove i punti elenco */
-  padding: 0; /* Rimuove il padding predefinito */
-  margin: 0; /* Rimuove il margine predefinito */
-  position: absolute;
-}
-
-/* Stile per ogni singolo blocco di attività */
-.activity-item {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-}
-
-
-
-.activity-info {
-  flex: 1;
-  text-align: left;
-  font-size: 0.7rem;
-  margin-right: 1rem;
-  line-height: 1rem;
-}
 
 /* Stile per il nome in grassetto */
 
@@ -522,3 +451,74 @@ a:hover {
   line-height: 1rem;
 }
 
+  /*vertical bar*/
+
+
+  .vertical-bar {
+    padding-top: 2rem;
+    font-family: CircularStd, sans-serif;
+    height: 100vh; /* Altezza a tutta schermo */
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    color: white;
+    position: absolute;
+    z-index: 3;
+  }
+  
+  /* intestazione */
+  .vertical-bar h3 {
+    font-size: 2rem;
+    color: white;
+  }
+  
+  /*messaggi */
+  .message {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 0.7rem;
+  }
+  
+  
+  
+  .wrapper {
+    position: fixed;
+    background-color: #212529;
+    bottom: 0;
+  }
+  
+  .vertical-bar {
+    font-family: CircularStd, sans-serif;
+    height: 100vh;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    color: white;
+    position: fixed; /* Cambiato da absolute a fixed */
+    top: 0;
+  }
+  
+  #activity-list {
+    list-style-type: none; /* Rimuove i punti elenco */
+    padding: 0; /* Rimuove il padding predefinito */
+    margin: 0; /* Rimuove il margine predefinito */
+    position: absolute;
+  }
+  
+  /* Stile per ogni singolo blocco di attività */
+  .activity-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+   
+  .activity-info {
+    flex: 1;
+    text-align: left;
+    font-size: 0.7rem;
+    margin-right: 1rem;
+    line-height: 1rem;
+  }
+  
