@@ -20,11 +20,13 @@ body{
 
 p{
     display: inline;
-   padding: 30px;
+  margin-top: 25px;
+  margin-bottom: 20px ;
     font-size: 1.2rem;
+    font-weight: 500;
 }
 .card{
-    background-color: rgb(54, 51, 51);
+    background-color: rgb(42, 39, 39);
     display: flex;
 }
 
@@ -46,6 +48,12 @@ span{
 }
 .play {
     padding-top: 10px;
+}
+/*.card img{
+    width: 50px;
+}*/
+.card-text{
+    color: white;
 }
 
 
