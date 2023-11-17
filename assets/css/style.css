@@ -761,7 +761,7 @@ a{
   font-size: 1.4rem;
 }
 .classPlayMobile{
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 
 }
 .classPlayMobileButton {
@@ -792,9 +792,49 @@ a{
   margin-top: 220px;
   
 }
+.testoNumeriAscoltiMobile {
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding-bottom: 15px;
+}
+.buttonSeguitiMobile{
+  background-color: rgb(32, 32, 32);
+  border: none;
+}
+.puntiMobileArtista, .suffleArtistaMobile {
+  font-size: 1.4rem;
+}
 #titleSongsMobile{
   padding-left: 10px;
 }
+.imgBraniPiaciutiArtistaMobile{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.divButtonCuoreArtistaMobile{
+  position: absolute;
+}
+.buttonCuorePazzerelloArtistaMobile{
+  background-color: #69eb96;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin-left: 25px;
+  margin-top: 30px;
+  border: 1px solid white;
+  
+}
+.cuorePazzerelloArtistaMobile{
+  font-size: 0.8rem;
+  padding-right: 12px;
+}
+.txtBraniCheTiPiaccionoMobileArtista{
+  font-size: 0.8rem;
+  font-weight: 600;
+  
+}
+
 #bgArtistMobile{
   background-image: url(../imgs/main/image-1.jpg);
   background-size: cover;
@@ -809,4 +849,9 @@ a{
   border-radius: 50%;
   background-color: #149643;
   border: none
+}
+
+.imgSezionePopolariArtistaMobile{
+ width: 70px;
+ height: 50px;
 }
