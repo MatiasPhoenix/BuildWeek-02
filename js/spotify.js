@@ -212,7 +212,7 @@ document.getElementById('searchForm').addEventListener('submit', async function 
             if (artistData) {
                 // Esegui operazioni specifiche per l'artista
                 // Mostra i dettagli dell'artista
-                console.log('Dettagli artista:', artistData);
+
             }
         }
         if (isAlbumSearch) {
@@ -239,6 +239,7 @@ function searchMusic(query) {
         .then(data => {
             const albumIds = data.data.map(track => track.album.id);
             displayResults(data.data, albumIds, query);
+
         })
         .catch(error => console.error('Error:', error));
 }
@@ -259,12 +260,10 @@ async function searchArtistId(artistName) {
                 const artistImage = track.artist.picture_medium;
                 const artistName = track.artist.name;
                 const tracklist = track.artist.tracklist;
-                
+
 
                 if (!displayedArtists.has(`${artistId}_${artistName}`)) { // Controlla se l'artista è già stato visualizzato
-                    console.log('ID dell\'artista:', artistId);
-                    console.log('Nome dell\'artista:', artistName);
-                    console.log('URL immagine dell\'artista:', artistImage);
+
 
                     // Mostra dettagli artista
                     displayArtistDetails(artistName, artistImage, artistId, tracklist);
@@ -277,7 +276,7 @@ async function searchArtistId(artistName) {
                         loadArtistTracklist(artistId);
                         saveDataAsJSON()
                     });
-                    document.getElementById('results').appendChild(artistElement);
+                    //document.getElementById('results').appendChild(artistElement);
 
                     displayedArtists.add(`${artistId}_${artistName}`); // Aggiunge l'artista visualizzato all'insieme
                 }
@@ -299,23 +298,34 @@ async function searchArtistId(artistName) {
 function displayArtistDetails(name, image, artistId, tracklist) {
     // Mostra dettagli artista nell'interfaccia
     const artistContainer = document.createElement('div');
-    artistContainer.classList.add('artist-details');
+    artistContainer.classList.add('artist-details','col-2');
 
     const artistImage = document.createElement('img');
     artistImage.src = image;
     artistImage.alt = 'Artist Image';
-    artistImage.style.width = '100px';
     artistContainer.appendChild(artistImage);
-    const artistName = document.createElement('h4');
-    artistName.textContent = name;
-    artistContainer.appendChild(artistName);
 
-    artistContainer.addEventListener('click', function () {
-        showSectionCenter(sectionArtist);
-    });
+    let artistNameContainer = document.createElement('div');
+    artistNameContainer.classList.add('artistNameContainer');
+
+    let divmiocaroDiv = document.createElement('div');
+    divmiocaroDiv.classList.add('divmiocaroDiv');
+    artistContainer.appendChild(divmiocaroDiv);
+    divmiocaroDiv.appendChild(artistNameContainer);
+
+    const artistName = document.createElement('h4');
+    artistName.classList.add('artistName');
+    artistName.textContent = name;
+    artistNameContainer.appendChild(artistName);
+
+    let pArtista = document.createElement('p');
+    pArtista.classList.add('pArtista');
+    pArtista.textContent = 'Artista';
+    artistNameContainer.appendChild(pArtista);
 
     const plusIconArtist = document.createElement('i');
     plusIconArtist.classList.add('bi', 'bi-heart');
+    plusIconArtist.classList.add('plus-iconArtist');
     plusIconArtist.addEventListener('click', function () {
         // Salva i dati associati all'artista nel localStorage
         const artistData = {
@@ -330,9 +340,10 @@ function displayArtistDetails(name, image, artistId, tracklist) {
         localStorage.setItem('artist/' + artistId, JSON.stringify(artistData));
         alert('Artista aggiunto al localStorage!');
     });
-    artistContainer.appendChild(plusIconArtist);
+    divmiocaroDiv.appendChild(plusIconArtist);
 
     document.getElementById('results').appendChild(artistContainer);
+    document.getElementById('results').classList.add('container-container','row','grid', 'gap-5')
 }
 
 async function loadArtistTracklist(artistId) {
@@ -370,16 +381,18 @@ function displayTracks(tracks) {
     resultsContainer.innerHTML = '';
 
     if (tracks && tracks.length > 0) {
+        console.log(tracks);
         tracks.forEach(track => {
             const trackElement = document.createElement('div');
-            trackElement.classList.add('mb-2', 'pl-3','trackElement');
+            trackElement.classList.add('mb-2', 'pl-3', 'trackElement');
 
-           let divImg = document.createElement('div');
-           divImg.classList.add('divImg');
-           let divDurationPlay = document.createElement('div');
-           divDurationPlay.classList.add('divDurationPlay');
-           trackElement.appendChild(divImg);
-           trackElement.appendChild(divDurationPlay);
+            let divImg = document.createElement('div');
+            divImg.classList.add('divImg');
+
+            let divDurationPlay = document.createElement('div');
+            divDurationPlay.classList.add('divDurationPlay');
+            trackElement.appendChild(divImg);
+            trackElement.appendChild(divDurationPlay);
 
             let cover = document.createElement('img');
             cover.classList.add('imgTrack');
@@ -399,13 +412,13 @@ function displayTracks(tracks) {
             artist.classList.add('aArtist');
             artist.textContent = track.artist.name;
             divTitle.appendChild(artist);
-            
+
             let duration = document.createElement('a');
             duration.classList.add('aDuration');
             duration.textContent = secondToMinutes(track.duration);
             divDurationPlay.appendChild(duration);
-           
-            
+
+
             // resultsContainer.appendChild(trackElement);
 
             const plusIconTrack = document.createElement('i');
@@ -417,7 +430,7 @@ function displayTracks(tracks) {
                     rank: track.rank,
                     duration: track.duration,
                     artist: track.artist.name,
-                    preview: track.preview, 
+                    preview: track.preview,
                     cover: track.album.cover,
                     artistId: track.artist.id,
                     tracksArtist: track.artist.tracklist,
@@ -428,22 +441,22 @@ function displayTracks(tracks) {
                 alert('Traccia aggiunta al localStorage!');
 
             });
-            
+
             // trackElement.appendChild(plusIconTrack);
-            console.log(track.preview);
+
             const playIcon = document.createElement('i');
             divDurationPlay.appendChild(playIcon);
             divDurationPlay.appendChild(plusIconTrack);
-            playIcon.classList.add('bi', 'bi-play-circle-fill','aPlay');
+            playIcon.classList.add('bi', 'bi-play-circle-fill', 'aPlay');
             playIcon.addEventListener('click', function () {
                 const url = track.preview; // Utilizza 'const' o 'let' invece di 'url =' per dichiarare la variabile
-                console.log(url);
+
                 playSpecificSong(url);
-                console.log(playSpecificSong(url));
+
             });
 
             // trackElement.appendChild(playIcon);
-            
+
 
             resultsContainer.appendChild(trackElement);
         });
@@ -466,17 +479,28 @@ function loadTracks(albumId) {
                 const resultsContainer = document.getElementById('results');
                 resultsContainer.innerHTML = 'Nessuna traccia disponibile per questo album.';
             }
-            console.log(data);
         })
         .catch(error => console.error('Error:', error));
 }
 
 function displayResults(results, albumIds, query) {
     const resultsContainer = document.getElementById('results');
+
+    let artistInfo;
+
+    results.forEach(track => {
+        artistInfo = track.artist;
+    });
+
+    // Ora artistInfo è accessibile anche al di fuori della funzione forEach
+
+
     resultsContainer.innerHTML = '';
+    let divSalvaTutti = document.createElement('div');
+    divSalvaTutti.classList.add('divSalvaTutti');
 
     const albums = results.reduce((acc, track) => {
-        acc[track.album.id] = acc[track.album.id] || { tracks: [], cover: track.album.cover, totalDuration: 0, title: track.album.title, artist: track.artist.name, id: track.album.id};
+        acc[track.album.id] = acc[track.album.id] || { tracks: [], cover: track.album.cover, totalDuration: 0, title: track.album.title, artist: track.artist.name, id: track.album.id, artistId: track.artist.id, artistImage: track.artist.picture, anno: track.album.release_date };
         acc[track.album.id].tracks.push(track);
         acc[track.album.id].totalDuration += track.duration;
         return acc;
@@ -484,33 +508,35 @@ function displayResults(results, albumIds, query) {
 
     Object.keys(albums).forEach(albumId => {
         const album = albums[albumId];
-
         album.tracks.sort((a, b) => b.rank - a.rank);
 
         const albumContainer = document.createElement('div');
-        albumContainer.classList.add('album-container');
+        albumContainer.classList.add('cardAlbum', 'pt-3', 'px-3', 'card', 'col-3', 'mt-3', 'me-5');
 
         const albumImage = document.createElement('img');
+        albumImage.classList.add('card-img-top', 'imgcardAlbum', 'rounded-2')
         albumImage.src = album.cover;
         albumImage.alt = "Album Cover";
-        albumImage.style.width = "100px";
         albumContainer.appendChild(albumImage);
 
-        const albumTitle = document.createElement('div');
-        albumTitle.textContent = `Album: ${album.title}`;
-        albumContainer.appendChild(albumTitle);
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body', 'cardFlex');
+        albumContainer.appendChild(cardBody);
 
-        const trackCountElement = document.createElement("div");
-        trackCountElement.textContent = `Number of Tracks: ${album.number}`;
-        albumContainer.appendChild(trackCountElement);
-    
+        let containerArtistTrack = document.createElement('div');
+        cardBody.appendChild(containerArtistTrack);
+
+
+
+        const albumTitle = document.createElement('div');
+        albumTitle.classList.add('card-title');
+        albumTitle.textContent = album.title;
+        containerArtistTrack.appendChild(albumTitle);
+
 
         const artistElement = document.createElement("div"); // Crea l'elemento per l'artista
-        albumContainer.appendChild(artistElement);
-
-        const totalDurationElement = document.createElement("div");
-        totalDurationElement.textContent = `Total Duration: ${formatDuration(album.totalDuration)}`;
-        albumContainer.appendChild(totalDurationElement);
+        artistElement.textContent = album.artist;
+        containerArtistTrack.appendChild(artistElement);
 
         const plusIconAlbum = document.createElement('i');
         plusIconAlbum.classList.add('bi', 'bi-heart');
@@ -518,86 +544,62 @@ function displayResults(results, albumIds, query) {
             // Salva i dati associati all'album nel localStorage
             const albumData = {
                 title: album.title,
-                number: album.number, 
+                number: album.number,
                 totalDuration: album.totalDuration,
                 artist: album.artist,
                 cover: album.cover,
-                id:album.id,
-                 // Supponendo che artistName sia disponibile in questo contesto
-                // Aggiungi altre proprietà che desideri salvare
+                id: album.id,
+                // Supponendo che artistName sia disponibile in questo contesto
+                // Aggiungi altre proprietÃ  che desideri salvare
             };
             localStorage.setItem('album/' + albumId, JSON.stringify(albumData));
             alert('Album aggiunto al localStorage!');
         });
+        cardBody.appendChild(plusIconAlbum);
 
-        albumContainer.addEventListener('click', function () {
-
-            window.location.href = 'album-page.html?id=' + album.id;
-
-        });
-
-
-        albumContainer.appendChild(plusIconAlbum);
-
-        resultsContainer.appendChild(albumContainer);
+        divSalvaTutti.appendChild(albumContainer);
+        resultsContainer.appendChild(divSalvaTutti);
         albumImage.addEventListener('click', function () {
+            showSectionCenter(sectionAlbum);
+            fetchAlbumDetails(albumId)
+                .then(albumDetails => {
+
+                    let immGrande = albumDetails.cover;
+                    let titolo = albumDetails.title;
+                    let immCantante = albumDetails.cover;
+                    let minutiAlbum = formatDuration(albumDetails.duration);
+                    let nomeArtista = albumDetails.artist.name;
+                    let dataAnno = albumDetails.release_date;
+                    let numeroCanz = albumDetails.nb_tracks;
+                    let tracks = albumDetails.tracks
+                    console.log(titolo);
+
+                    populatePageWithData(
+                        immGrande,
+                        titolo,
+                        immCantante,
+                        minutiAlbum,
+                        nomeArtista,
+                        dataAnno,
+                        numeroCanz,
+                        tracks
+                    )
+
+                })
+                .catch(error => {
+                    console.error(error);
+                    // Gestisci l'errore in modo appropriato
+                });
             loadTracks(album.tracks[0].album.id);
             searchArtistId(query);
         });
-      
-        // Calcola la durata totale degli album
-        calculateTotalDuration([albumId])
-            .then(({ totalDuration, number, artist }) => {
-                totalDurationElement.textContent = `Total Duration: ${totalDuration}`;
-                trackCountElement.textContent = `Number of Tracks: ${number}`;
-                artistElement.textContent = `Artist: ${artist}`;
 
-            })
-            .catch(error => {
-                console.error(`Errore durante il calcolo della durata totale per l'album ${albumId}:`, error);
-            });
     });
 
 }
 
-async function calculateTotalDuration(albumIds) {
-    let totalDuration = 0;
-    let number = 0;
-    let artist = ''; // Inizializza la variabile artist
-    let genre = ''; // Inizializza la variabile genre
-
-    // Itera su ciascun ID dell'album
-    for (const albumId of albumIds) {
-        try {
-            // Esegui una chiamata API per ottenere le tracce dell'album
-            const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`);
-            const data = await response.json();
-
-            // Verifica se le tracce sono presenti e non vuote
-            if (data && data.tracks && data.tracks.data) {
-                // Calcola la durata totale delle tracce dell'album
-                totalDuration = formatDuration(data.duration);
-                number = data.nb_tracks;
-                genre = data.genres.data[0].name;
-                console.log(genre)
-                console.log('Numero di tracce dell\'album:', number);
-
-
-                // Assegna il nome dell'artista alla variabile artist
-                artist = data.artist.name;
-
-            }
-        } catch (error) {
-            console.error(`Errore durante il recupero delle informazioni per l'album ${albumId}:`, error);
-        }
-    }
-
-    // Restituisci la durata totale formattata, il numero di tracce e il nome dell'artista
-    return { totalDuration: totalDuration, number: number, artist: artist };
-}
-
 function saveDataAsJSON() {
-    const localStorageData = { 
+    const localStorageData = {
         // Aggiungi qui tutti i dati che vuoi salvare nel file JSON
         // Ad esempio, se hai salvato dati relativi agli artisti, tracce o album:
         storedArtists: retrieveDataFromLocalStorage('artist'),
@@ -608,7 +610,7 @@ function saveDataAsJSON() {
     const jsonData = JSON.stringify(localStorageData);
     const blob = new Blob([jsonData], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
-    
+
     const link = document.createElement('a');
     link.href = url;
     link.download = 'storedData.json';
@@ -647,7 +649,7 @@ const randomAlbum = getRandomAlbum(albums);
 
 let imgSong = document.getElementById('imgSong');
 let titoloCanzone = document.getElementById('titoloCanzone');
-let playSong= document.getElementById('playSong');
+let playSong = document.getElementById('playSong');
 let artistaNome = document.getElementById('artistaNome');
 let dataSong = document.getElementById('dataSong');
 dataSong.addEventListener('click', function () {
@@ -656,7 +658,7 @@ dataSong.addEventListener('click', function () {
 
 
 if (randomAlbum) {
-    imgSong.src = randomAlbum.cover; 
+    imgSong.src = randomAlbum.cover;
     titoloCanzone.textContent = `Titolo: ${randomAlbum.title}`; // Inserisci il titolo dell'album
     artistaNome.textContent = `Artista: ${randomAlbum.artist}`; // Inserisci l'artista dell'album
 }
@@ -673,32 +675,33 @@ albums.forEach(album => {
     const cardAlbum = document.createElement('div');
     cardAlbum.classList.add('cardAlbum', 'pt-3', 'px-3', 'card', 'col-3', 'mt-3');
     cardAlbum.style.width = '18rem';
-    
+
     const cardImage = document.createElement('img');
     cardImage.classList.add('card-img-top', 'imgcardAlbum', 'rounded-2');
     cardImage.src = album.cover;
     cardImage.alt = 'Card image cap';
     cardAlbum.appendChild(cardImage);
-    
+
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
-    
+
     const cardTitle = document.createElement('h5');
     cardTitle.classList.add('card-title');
     cardTitle.textContent = album.title;
     cardBody.appendChild(cardTitle);
-    
+
     const cardText = document.createElement('p');
     cardText.classList.add('card-text', 'fw-bold', 'colorCard');
     cardText.textContent = `Artista: ${album.artist}`;
     cardBody.appendChild(cardText);
-    
+
     cardAlbum.appendChild(cardBody);
-    
+
     containerAlbum.appendChild(cardAlbum);
-    
+
     cardAlbum.addEventListener('click', function () {
         showSectionCenter(sectionAlbum);
+
     });
     // Aggiungiamo la copia del blocco HTML al container
 });
@@ -717,7 +720,7 @@ for (let i = 0; i < localStorage.length; i++) {
         artist.push(artistData);
     }
 }
-console.log(artist);
+
 
 const containerArtist = document.querySelector('.containerArtist'); // Otteniamo il container dove inserire le copie
 
@@ -725,25 +728,25 @@ artist.forEach(artist => {
     const cardAlbum = document.createElement('div');
     cardAlbum.classList.add('cardAlbum', 'pt-3', 'px-3', 'card', 'col-3', 'mt-3');
     cardAlbum.style.width = '18rem';
-    
+
     const cardImage = document.createElement('img');
     cardImage.classList.add('card-img-top', 'imgcardAlbum', 'rounded-2');
     cardImage.src = artist.image;
     cardImage.alt = 'Card image cap';
     cardAlbum.appendChild(cardImage);
-    
+
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
-    
+
     const cardTitle = document.createElement('h5');
     cardTitle.classList.add('card-title');
     cardTitle.textContent = "Artista";
-    
+
     const cardText = document.createElement('p');
     cardText.classList.add('card-text', 'fw-bold', 'colorCard');
     cardText.textContent = `Artista: ${artist.name}`;
     cardBody.appendChild(cardText);
-    
+
     cardAlbum.appendChild(cardBody);
     cardAlbum.addEventListener('click', function () {
         showSectionCenter(sectionArtist);
@@ -777,80 +780,80 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 
-    
-    
 
-    const searchIcon = document.getElementById('searchIcon');
-    const plusPlaylist = document.getElementById('plus');
-    const homeButton = document.getElementById('homeButton'); // Aggiungi il riferimento al pulsante Home
-    const searchCentral = document.querySelector('.search-central');
-    const playlistCentral = document.querySelector('.playlist-central');
-    const centralPage = document.getElementById('centralPage');
 
-    function showSection(sectionToShow) {
-        const sections = [centralPage, searchCentral, playlistCentral];
 
-        sections.forEach(section => {
-            if (section === sectionToShow) {
-                section.classList.remove('d-lg-none');
-                section.classList.add('d-lg-block');
-            } else {
-                section.classList.add('d-lg-none');
-                section.classList.remove('d-lg-block');
-            }
-        });
-    }
 
-    searchIcon.addEventListener('click', function () {
-        showSection(searchCentral);
+
+
+
+
+
+
+
+
+
+
+
+const searchIcon = document.getElementById('searchIcon');
+const plusPlaylist = document.getElementById('plus');
+const homeButton = document.getElementById('homeButton'); // Aggiungi il riferimento al pulsante Home
+const searchCentral = document.querySelector('.search-central');
+const playlistCentral = document.querySelector('.playlist-central');
+const centralPage = document.getElementById('centralPage');
+
+function showSection(sectionToShow) {
+    const sections = [centralPage, searchCentral, playlistCentral];
+
+    sections.forEach(section => {
+        if (section === sectionToShow) {
+            section.classList.remove('d-lg-none');
+            section.classList.add('d-lg-block');
+        } else {
+            section.classList.add('d-lg-none');
+            section.classList.remove('d-lg-block');
+        }
     });
+}
 
-    plusPlaylist.addEventListener('click', function () {
-        showSection(playlistCentral);
+searchIcon.addEventListener('click', function () {
+    showSection(searchCentral);
+});
+
+plusPlaylist.addEventListener('click', function () {
+    showSection(playlistCentral);
+});
+
+homeButton.addEventListener('click', function () {
+    showSection(centralPage);
+    showSectionCenter(sectionHome);
+});
+
+
+
+
+
+const sectionHome = document.getElementById('sectionHome');
+const sectionArtist = document.getElementById('sectionArtist');
+const sectionAlbum = document.getElementById('sectionAlbum');
+
+function showSectionCenter(sectionToShow) {
+    showSection(centralPage);
+    const sections = [sectionAlbum, sectionArtist, sectionHome];
+
+    sections.forEach(section => {
+        if (section === sectionToShow) {
+
+            section.classList.remove('hidden-element');
+        } else {
+            section.classList.add('hidden-element');
+        }
     });
-
-    homeButton.addEventListener('click', function () {
-        showSection(centralPage);
-        showSectionCenter(sectionHome);
-    });
+}
 
 
-
-
-
-    const sectionHome = document.getElementById('sectionHome');
-    const sectionArtist = document.getElementById('sectionArtist');
-    const sectionAlbum = document.getElementById('sectionAlbum');
-  
-    function showSectionCenter(sectionToShow) {
-        showSection(centralPage);
-        const sections = [sectionAlbum, sectionArtist, sectionHome];
-
-        sections.forEach(section => {
-            if (section === sectionToShow) {
-
-                section.classList.remove('hidden-element');
-            } else {
-                section.classList.add('hidden-element');
-            }
-        });
-    }
-
-    
 
 
 
@@ -882,22 +885,25 @@ async function searchTracks(query) {
 
 let cardHomePlaylist = document.querySelectorAll('.cardHomePlaylist');
 cardHomePlaylist.forEach(card => {
-card.addEventListener('click', function () {
-    showSectionCenter(sectionAlbum);
-})});
+    card.addEventListener('click', function () {
+        showSectionCenter(sectionAlbum);
+    })
+});
 
 let playListCentral = document.querySelectorAll('.playListCentral');
 playListCentral.forEach(card => {
-card.addEventListener('click', function () {
-    showSectionCenter(sectionAlbum);
-})});
+    card.addEventListener('click', function () {
+        showSectionCenter(sectionAlbum);
+    })
+});
 
 
 let arrowLeft = document.querySelectorAll('.arrowLeft');
 arrowLeft.forEach(arrow => {
-arrow.addEventListener('click', function () {
-    showSectionCenter(sectionHome);
-});});
+    arrow.addEventListener('click', function () {
+        showSectionCenter(sectionHome);
+    });
+});
 
 
 
@@ -976,15 +982,78 @@ function fillPageWithAlbumData(albumDetails, songsList) {
   */
 
 
+function populatePageWithData(
+    immGrande,
+    titolo,
+    immCantante,
+    minutiAlbum,
+    nomeArtista,
+    dataAnno,
+    numeroCanz,
+    tracks,
+) {
+    console.log(tracks);
+    console.log(titolo);
+    let imgAlbumGrande = document.getElementById("imgAlbumGrand");
+    imgAlbumGrande.src = immGrande;
+    let arrayTrack = tracks
+    var elementoDaClonare = document.getElementById("elementoDaClonare");
+    var contenitoreCloni = document.getElementById("contenitoreCloni");
+    console.log(arrayTrack);
+    for (const track of arrayTrack) {
+     console.log(track.title);
+    };
+
+    let titleSongsAlbum = document.getElementById("titleSongsAlbum");
+    titleSongsAlbum.textContent = titolo;
+
+    let imgAlbumPar = document.getElementById("imgAlbumPar");
+    imgAlbumPar.src = immCantante;
+
+    let spanMinuteAlbum = document.getElementById("spanMinuteAlbum");
+    spanMinuteAlbum.textContent = minutiAlbum;
+
+    let contatoreAlbumTrack = document.querySelector(".contatoreAlbumTrack");
+    contatoreAlbumTrack.textContent = "contatore";
+
+    let nameTrack = document.querySelector(".nameTrack");
+    nameTrack.textContent = "nomeTraccia";
+
+    let nameArtist = document.querySelectorAll(".nameArtist");
+    nameArtist.forEach(nome => {
+        nome.textContent = nomeArtista
+    });
+
+    let dataAlbum = document.querySelector(".dataAlbum");
+    dataAlbum.textContent = dataAnno;
+
+    let numeroCanzoni = document.querySelector(".numeroCanzoni");
+    numeroCanzoni.textContent = numeroCanz;
+
+}
 
 
-  let imgAlbumGrande = document.getElementById("imgAlbumGrand");
-  let titleSongs = document.getElementById("titleSongs");
-  let imgAlbumPar = document.getElementById("imgAlbumPar");
-  let spanMinuteAlbum = document.getElementById("spanMinuteAlbum");
-  let contatoreAlbumTrack = document.querySelector(".contatoreAlbumTrack");
-  let nameTrack = document.querySelector(".nameTrack");
-  let nameArtist = document.querySelectorAll(".nameArtist");
-  let dataAlbum = document.querySelector(".dataAlbum");
-  let numeroCanzoni = document.querySelector(".numeroCanzoni");
+
+
+async function fetchAlbumDetails(albumId) {
+    const albumUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
+
+    return fetch(albumUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Errore nel recupero dei dettagli dell\'album');
+            }
+            return response.json();
+        })
+        .then(albumData => {
+            return albumData; // Restituisce i dettagli dell'album come Promise
+        })
+        .catch(error => {
+            throw new Error('Errore durante il recupero dei dettagli dell\'album:', error);
+        });
+}
+
+
+
+
 

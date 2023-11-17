@@ -547,13 +547,13 @@
                         </div>
                         <div class="col-8 d-flex flex-column grid gap-0 row-gap-5">
                             <p class="fs-4 fw-bold">Album</p>
-                            <h2 id="titleSongs" class="fw-bold"></h2>
+                            <h2 id="titleSongsAlbum" class="fw-bold"></h2>
                             <p class="">
-                                <img id="imgAlbumPar rigaAlbum" src="" alt="">
+                                <img id="imgAlbumPar" class="rigaAlbum" src="" alt="">
                                 <span class="nameArtist rigaAlbum"></span>
                                 <span class="dataAlbum rigaAlbum"></span>
                                 <span class="numeroCanzoni rigaAlbum"></span>
-                                <span id="spanMinuteAlbum rigaAlbum"></span>
+                                <span id="spanMinuteAlbum" class=" rigaAlbum"></span>
                             </p>
                         </div>
                     </div>
@@ -623,7 +623,8 @@
                             <div class="col-2 d-flex justify-content-end">RIPRODUZIONI</div>
                             <div class="col-2 d-flex justify-content-end"><i class="bi bi-clock"></i></div>
                         </div>
-                        <div class="row justify-content-around mt-4">
+
+                        <div id="cloneTraccia" class="row justify-content-around mt-4 d-none">
                             <div class="col-6 d-flex align-items-center">
                                 <div class="contatoreAlbumTrack"></div>
                                 <div class="d-flex flex-column grid gap-2 ms-3">
@@ -634,7 +635,7 @@
                             <div class="col-2 d-flex justify-content-end rankAlbumTrack"></div>
                             <div class="col-2 d-flex justify-content-end timeAlbumTrack"></div>
                         </div>
-
+                        <div class="contenitoreCloni"></div>
 
                     </div>
                 </div>

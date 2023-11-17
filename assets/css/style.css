@@ -745,7 +745,7 @@ a{
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.76); 
   box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.76);
 }
-#titleSongs{
+#titleSongs, .titleSongsAlbum{
   font-size: 100px;
 }
 #imgAlbumPar{
@@ -832,7 +832,7 @@ a{
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.76); 
   box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.76);
 }
-#titleSongs{
+#titleSongs, .titleSongsAlbum{
   font-size: 100px;
 }
 #imgAlbumPar{
@@ -970,3 +970,48 @@ margin-right: 15px;
 .aPlus:hover{
   color: #1ed760;
 }
+
+.divSalvaTutti{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardFlex{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+
+
+
+.artist-details img{
+  border-radius: 20%;
+ }
+ .artistNameContainer{
+   display: flex;
+   flex-direction: column;
+ }
+ .divmiocaroDiv{
+   display: flex;
+   justify-content: space-between;
+   margin-top: 20px;
+ }
+ .artistName{
+ font-size: 25px;
+ font-weight: bold;
+ margin-bottom: 15px;
+ 
+ }
+ .pArtista{
+   font-size: 20px;
+   font-weight: bold;
+   color: #454444;
+ }
+ .plus-iconArtist{
+   font-size: 25px;
+ 
+ }
+ .plus-iconArtist:hover{
+   color: #1ed760;
+ }
