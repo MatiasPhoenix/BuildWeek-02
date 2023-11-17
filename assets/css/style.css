@@ -723,3 +723,168 @@ a{
   font-weight: bold;
   line-height: 1rem;
 }
+
+/************************************* Inferno mobile **************************************/
+
+#backGroundMobile {
+  background-color: var(--colorBGHome);
+  overflow-y: scroll;
+}
+.buonaseraMobile{
+  font-size: 1.5rem;
+}
+.elementiBuonaseraMobile{
+  color: white;
+  padding: 0px  10px;
+  font-size: 1.4rem;
+}
+.imgCardPlaylistPersonalMobile {
+  height: 60px;
+  width: 70px;
+  border-radius: 20% 0% 0% 20%;
+}
+.cardPlaylistPersonaleMobile{
+  
+  /* max-width: 150px; */
+}
+.textCardPlaylist{
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 0.9rem;
+  padding-right: 0px;
+  padding-left: 5px;
+}
+#testoLocoMobile{
+  font-size: 0.8rem;
+  color: grey;
+  font-weight: 600;
+}
+.classCuoreCardMobile{
+  font-size: 1.4rem;
+}
+.classPlayMobile{
+  font-size: 1.8rem;
+
+}
+.classPlayMobileButton {
+  border-radius: 50%;
+  padding-left: 5px;
+  border: none;
+  background-color: black;
+}
+#cardPlayListMobile{
+  margin-bottom: 30px;
+}
+
+/************************** Pagina Artista Mobile */
+#buttonArtistMobile{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #2c2c2c;
+  color: white;
+  margin-left: 15px;
+}
+#arrowAlbumMobile{
+  font-size: 3px;
+  
+}
+#spaccaTutto{
+  margin-top: 220px;
+  
+}
+.testoNumeriAscoltiMobile {
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding-bottom: 15px;
+}
+.buttonSeguitiMobile{
+  background-color: rgb(32, 32, 32);
+  border: none;
+}
+.puntiMobileArtista, .suffleArtistaMobile {
+  font-size: 1.4rem;
+}
+#titleSongsMobile{
+  padding-left: 10px;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  
+}
+.imgBraniPiaciutiArtistaMobile{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.divButtonCuoreArtistaMobile{
+  position: absolute;
+}
+.buttonCuorePazzerelloArtistaMobile{
+  background-color: #69eb96;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin-left: 25px;
+  margin-top: 30px;
+  border: 1px solid white;
+  
+}
+.cuorePazzerelloArtistaMobile{
+  font-size: 0.8rem;
+  padding-right: 12px;
+}
+.txtBraniCheTiPiaccionoMobileArtista{
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.1rem;
+  
+}
+.txtRicordiMobileArtista{
+  line-height: 1.5rem;
+}
+
+#bgArtistMobile{
+  background-image: url(../imgs/main/image-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 400px;
+}
+.PlayMobileButton{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #149643;
+  border: none
+}
+.imgSezionePopolariArtistaMobile{
+ width: 75px;
+ height: 55px;
+}
+
+.imgSezioneAlbumMobile {
+  width: 70%;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  
+}
+.imgArtistaInAlbumMobile{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.txtRicordiMobile{
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+}
+.puntiniAlbumMobile {
+  font-size: 1.7rem;
+  padding-top: 15px;
+}
+#backgroundAlbumMobile{
+  background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 41%, rgba(116,27,0,1) 100%);
+}
