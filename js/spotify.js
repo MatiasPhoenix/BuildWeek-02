@@ -254,13 +254,12 @@ async function searchArtistId(artistName) {
 
         if (data && data.data && data.data.length > 0) {
             const displayedArtists = new Set(); // Insieme per tenere traccia degli artisti visualizzati
-
+            
             data.data.forEach(track => {
                 const artistId = track.artist.id;
                 const artistImage = track.artist.picture_medium;
                 const artistName = track.artist.name;
                 const tracklist = track.artist.tracklist;
-
 
                 if (!displayedArtists.has(`${artistId}_${artistName}`)) { // Controlla se l'artista è già stato visualizzato
 
@@ -295,11 +294,11 @@ async function searchArtistId(artistName) {
 }
 
 
-function displayArtistDetails(name, image, artistId, tracklist) {
+function displayArtistDetails(name, image, artistId, tracklist, numFan) {
     // Mostra dettagli artista nell'interfaccia
     const artistContainer = document.createElement('div');
-    artistContainer.classList.add('artist-details','col-2');
-
+    artistContainer.classList.add('artist-details', 'col-2');
+    
     const artistImage = document.createElement('img');
     artistImage.src = image;
     artistImage.alt = 'Artist Image';
@@ -336,14 +335,21 @@ function displayArtistDetails(name, image, artistId, tracklist) {
             // Aggiungi altri dati necessari
             // esempio: albums: ['album1', 'album2']
         };
-    
+
         localStorage.setItem('artist/' + artistId, JSON.stringify(artistData));
-        alert('Artista aggiunto al localStorage!');
+        
     });
     divmiocaroDiv.appendChild(plusIconArtist);
 
     document.getElementById('results').appendChild(artistContainer);
-    document.getElementById('results').classList.add('container-container','row','grid', 'gap-5')
+    document.getElementById('results').classList.add('container-container', 'row', 'grid', 'gap-5')
+
+    artistContainer.addEventListener('click', function (){
+        showSectionCenter(sectionArtist);
+        loadArtistTracklist(artistId)
+    });
+    
+    
 }
 
 async function loadArtistTracklist(artistId) {
@@ -353,6 +359,7 @@ async function loadArtistTracklist(artistId) {
 
         if (data && data.data && data.data.length > 0) {
             displayTracks(data.data);
+            displayTracksInTemplate(data.data);
         } else {
             console.error('Nessuna traccia trovata per questo artista');
         }
@@ -438,7 +445,7 @@ function displayTracks(tracks) {
                     // Aggiungi altre proprietÃ  che desideri salvare
                 };
                 localStorage.setItem('track/' + track.id, JSON.stringify(trackData));
-                alert('Traccia aggiunta al localStorage!');
+                
 
             });
 
@@ -553,7 +560,7 @@ function displayResults(results, albumIds, query) {
                 // Aggiungi altre proprietÃ  che desideri salvare
             };
             localStorage.setItem('album/' + albumId, JSON.stringify(albumData));
-            alert('Album aggiunto al localStorage!');
+            
         });
         cardBody.appendChild(plusIconAlbum);
 
@@ -572,7 +579,7 @@ function displayResults(results, albumIds, query) {
                     let dataAnno = albumDetails.release_date;
                     let numeroCanz = albumDetails.nb_tracks;
                     let tracks = albumDetails.tracks
-                    console.log(titolo);
+                    console.log(albumDetails);
 
                     populatePageWithData(
                         immGrande,
@@ -996,26 +1003,24 @@ function populatePageWithData(
     console.log(titolo);
     let imgAlbumGrande = document.getElementById("imgAlbumGrand");
     imgAlbumGrande.src = immGrande;
-    let arrayTrack = tracks
-    var elementoDaClonare = document.getElementById("elementoDaClonare");
-    var contenitoreCloni = document.getElementById("contenitoreCloni");
-    console.log(arrayTrack);
-    for (const track of arrayTrack) {
-     console.log(track.title);
-    };
 
+    let cloneTraccia = document.querySelector(".cloneTraccia");
+    let contenitoreCloni = document.getElementById("contenitoreCloni");
+    let contatoreAlbumTrack = document.querySelector(".contatoreAlbumTrack");
+    contatoreAlbumTrack.textContent = 1;
+    contenitoreCloni.innerHTML = '';
+
+    
     let titleSongsAlbum = document.getElementById("titleSongsAlbum");
     titleSongsAlbum.textContent = titolo;
-
+    
     let imgAlbumPar = document.getElementById("imgAlbumPar");
     imgAlbumPar.src = immCantante;
-
+    
     let spanMinuteAlbum = document.getElementById("spanMinuteAlbum");
     spanMinuteAlbum.textContent = minutiAlbum;
-
-    let contatoreAlbumTrack = document.querySelector(".contatoreAlbumTrack");
-    contatoreAlbumTrack.textContent = "contatore";
-
+    
+    
     let nameTrack = document.querySelector(".nameTrack");
     nameTrack.textContent = "nomeTraccia";
 
@@ -1023,13 +1028,43 @@ function populatePageWithData(
     nameArtist.forEach(nome => {
         nome.textContent = nomeArtista
     });
-
+    
     let dataAlbum = document.querySelector(".dataAlbum");
     dataAlbum.textContent = dataAnno;
 
     let numeroCanzoni = document.querySelector(".numeroCanzoni");
     numeroCanzoni.textContent = numeroCanz;
 
+    tracks.data.sort((a, b) => b.rank - a.rank);
+
+// Ciclo sulle tracce ordinate per rank
+for (const track of tracks.data) {
+    console.log(track.title);
+    console.log(track.rank);
+    let clone = cloneTraccia.children[0].cloneNode(true);
+    
+    // Modifica il clone con i dati della traccia corrente
+    let testoParagrafo = clone.querySelector('.nameTrack');
+    let testoSpan = clone.querySelector('.nameArtist');
+    let rank = clone.querySelector('.rank');
+    let timeAlbumTrack = clone.querySelector('.timeAlbumTrack');
+   
+    testoParagrafo.textContent = track.title;
+    testoSpan.textContent = track.artista;
+    contatoreAlbumTrack.textContent ++;
+    
+    rank.textContent = track.rank;
+    timeAlbumTrack.textContent = secondToMinutes(track.duration);
+    contenitoreCloni.appendChild(clone);
+
+    clone.addEventListener('click', function () {
+
+        const url = track.preview; 
+        if (url) {
+            playSpecificSong(url);
+        }
+});
+}
 }
 
 
@@ -1057,3 +1092,24 @@ async function fetchAlbumDetails(albumId) {
 
 
 
+function displayTracksInTemplate(tracks) {
+    const contenitoreCloni2 = document.getElementById('contenitoreCloni2');
+
+    if (tracks && tracks.length > 0) {
+        tracks.forEach((track, index) => {
+            const cloneTraccia = document.querySelector('.cloneTraccia2').cloneNode(true);
+            cloneTraccia.classList.remove('d-none');
+
+            // Aggiunta delle informazioni della traccia nel template clonato
+            cloneTraccia.querySelector('.contatoreAlbumTrack2').textContent = index + 1;
+            cloneTraccia.querySelector('.nameTrack2').textContent = track.title;
+            cloneTraccia.querySelector('.nameArtist2').textContent = track.artist.name;
+            cloneTraccia.querySelector('.rank2').textContent = track.rank;
+            cloneTraccia.querySelector('.timeAlbumTrack2').textContent = `${track.duration} sec`;
+
+            contenitoreCloni2.appendChild(cloneTraccia);
+        });
+    } else {
+        console.error('Nessuna traccia trovata per questo artista');
+    }
+}

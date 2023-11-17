@@ -738,10 +738,13 @@ a{
   padding: 0px  10px;
   font-size: 1.4rem;
 }
-.imgCardPlaylistPersonalMobile {
-  height: 60px;
-  width: 70px;
-  border-radius: 20% 0% 0% 20%;
+#titleSongsArtist, #titleSongsAlbum{
+  font-size: 100px;
+}
+#imgAlbumPar{
+  width: 20px;
+  border-radius: 100%;
+  margin-right: 5px;
 }
 .cardPlaylistPersonaleMobile{
   
@@ -803,8 +806,8 @@ a{
   background-color: rgb(32, 32, 32);
   border: none;
 }
-.puntiMobileArtista, .suffleArtistaMobile {
-  font-size: 1.4rem;
+#titleSongsArtist, #titleSongsAlbum{
+  font-size: 100px;
 }
 #titleSongsMobile{
   padding-left: 10px;
@@ -812,7 +815,14 @@ a{
   line-height: 1.1;
   
 }
-.imgBraniPiaciutiArtistaMobile{
+#containerBrani{
+  width: 100%;
+  height: 100%;
+
+  background: rgb(88,76,31);
+  background: linear-gradient(180deg, rgba(88,76,31,1) 6%, rgba(43,39,23,1) 17%, rgba(18,18,18,1) 39%);
+}
+.svgSong svg{
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -864,27 +874,52 @@ a{
  height: 55px;
 }
 
-.imgSezioneAlbumMobile {
-  width: 70%;
-  margin-top: 25px;
-  margin-bottom: 15px;
-  
+.divSalvaTutti{
+  display: flex;
+  flex-wrap: wrap;
 }
-.imgArtistaInAlbumMobile{
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+
+.cardFlex{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
-.txtRicordiMobile{
-  font-size: 0.9rem;
-  font-weight: 600;
-  line-height: 1.8rem;
-}
-.puntiniAlbumMobile {
-  font-size: 1.7rem;
-  padding-top: 15px;
-}
-#backgroundAlbumMobile{
-  background: rgb(0,0,0);
-background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 41%, rgba(116,27,0,1) 100%);
-}
+
+
+
+
+.artist-details img{
+  border-radius: 20%;
+ }
+ .artistNameContainer{
+   display: flex;
+   flex-direction: column;
+ }
+ .divmiocaroDiv{
+   display: flex;
+   justify-content: space-between;
+   margin-top: 20px;
+ }
+ .artistName{
+ font-size: 25px;
+ font-weight: bold;
+ margin-bottom: 15px;
+ 
+ }
+ .pArtista{
+   font-size: 20px;
+   font-weight: bold;
+   color: #454444;
+ }
+ .plus-iconArtist{
+   font-size: 25px;
+ 
+ }
+ .plus-iconArtist:hover{
+   color: #1ed760;
+ }
+
+
+ .rowTraccia:hover{
+  background-color: yellow;
+ }
