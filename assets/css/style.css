@@ -861,3 +861,28 @@ a{
  width: 75px;
  height: 55px;
 }
+
+.imgSezioneAlbumMobile {
+  width: 70%;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  
+}
+.imgArtistaInAlbumMobile{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.txtRicordiMobile{
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+}
+.puntiniAlbumMobile {
+  font-size: 1.7rem;
+  padding-top: 15px;
+}
+#backgroundAlbumMobile{
+  background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 41%, rgba(116,27,0,1) 100%);
+}
