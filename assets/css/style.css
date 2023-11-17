@@ -806,6 +806,9 @@ a{
 }
 #titleSongsMobile{
   padding-left: 10px;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  
 }
 .imgBraniPiaciutiArtistaMobile{
   width: 50px;
@@ -832,7 +835,11 @@ a{
 .txtBraniCheTiPiaccionoMobileArtista{
   font-size: 0.8rem;
   font-weight: 600;
+  line-height: 1.1rem;
   
+}
+.txtRicordiMobileArtista{
+  line-height: 1.5rem;
 }
 
 #bgArtistMobile{
@@ -850,8 +857,7 @@ a{
   background-color: #149643;
   border: none
 }
-
 .imgSezionePopolariArtistaMobile{
- width: 70px;
- height: 50px;
+ width: 75px;
+ height: 55px;
 }
